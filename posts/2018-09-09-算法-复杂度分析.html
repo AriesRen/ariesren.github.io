@@ -99,17 +99,11 @@
   
 
   
-    
-      
-    
-
-    
-  
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|consolas:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -171,18 +165,18 @@
 
 
 
-  <meta name="description" content="前言我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。 复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。 为什么需要复杂度分析有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢？ 1">
+  <meta name="description" content="前言  我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。 为什么需要复杂度分析  有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢">
 <meta name="keywords" content="算法,复杂度分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-复杂度分析">
 <meta property="og:url" content="http://blog.renhj.org/posts/2018-09-09-算法-复杂度分析.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="前言我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。 复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。 为什么需要复杂度分析有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢？ 1">
+<meta property="og:description" content="前言  我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。 为什么需要复杂度分析  有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-12T02:53:12.035Z">
+<meta property="og:updated_time" content="2018-10-12T17:58:24.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-复杂度分析">
-<meta name="twitter:description" content="前言我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。 复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。 为什么需要复杂度分析有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢？ 1">
+<meta name="twitter:description" content="前言  我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。 为什么需要复杂度分析  有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢">
 
 
 
@@ -482,7 +476,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-12 10:53:12" itemprop="dateModified" datetime="2018-10-12T10:53:12+08:00">2018-10-12</time>
+                <time title="修改时间：2018-10-13 01:58:24" itemprop="dateModified" datetime="2018-10-13T01:58:24+08:00">2018-10-13</time>
               
             
           </span>
@@ -541,14 +535,60 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。</p>
-<p>复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。</p>
-<h2 id="为什么需要复杂度分析"><a href="#为什么需要复杂度分析" class="headerlink" title="为什么需要复杂度分析"></a>为什么需要复杂度分析</h2><p>有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢？</p>
-<p>1、首先，这种评估方法确实是准确的，但是这种方法是”事后统计法”，<strong>是有非常大的局限性</strong>。</p>
-<p>2、<strong>测试结果非常依赖测试环境</strong>，同样一段代码，在不同的CPU可能执行的时间会差很多，比如Intel Core i9就比i3运行的快，同样在不同的两台机器上也可能会出现代码执行不一样的情况。</p>
-<p>3、对于<strong>不同的数据集，如果数据的有序程度不一样</strong>，那么对数据进行同一种算法运算，也可能会得到不同的结果。除此之外，<strong>数据规模的大小</strong>也可能对算法产生影响。</p>
+        <div style="text-align: center;"><br><div class="note success"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3></div><br></div>
+
+<p>我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="为什么需要复杂度分析"><a href="#为什么需要复杂度分析" class="headerlink" title="为什么需要复杂度分析"></a>为什么需要复杂度分析</h3></div><br></div>
+
+<p>有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢？</p>
+<ul>
+<li><p>1、首先，这种评估方法确实是准确的，但是这种方法是”事后统计法”，<strong>是有非常大的局限性</strong>。</p>
+</li>
+<li><p>2、<strong>测试结果非常依赖测试环境</strong>，同样一段代码，在不同的CPU可能执行的时间会差很多，比如Intel Core i9就比i3运行的快，同样在不同的两台机器上也可能会出现代码执行不一样的情况。</p>
+</li>
+<li><p>3、对于<strong>不同的数据集，如果数据的有序程度不一样</strong>，那么对数据进行同一种算法运算，也可能会得到不同的结果。除此之外，<strong>数据规模的大小</strong>也可能对算法产生影响。</p>
+</li>
+</ul>
 <p>因此我们需要一个不用具体的测试数据来测试，就可以粗略估计算法的执行效率的方法，这就是时间、空间复杂度分析所解决的问题。</p>
-<h2 id="大O复杂度表示法"><a href="#大O复杂度表示法" class="headerlink" title="大O复杂度表示法"></a>大O复杂度表示法</h2>
+<div style="text-align: center;"><br><div class="note success"><h3 id="大O复杂度表示法"><a href="#大O复杂度表示法" class="headerlink" title="大O复杂度表示法"></a>大O复杂度表示法</h3></div><br></div>
+
+<p>算法的执行效率，粗略的讲，就是算法执行的时间，但是如何能在不运行的情况下，得到一段代码的运行时间呢？</p>
+<p>这里举一个简单的例子，求解1，2，3……n 的累加和，以下为一个简单的代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从CPU的角度看，每一行代码都执行着类似的操作：<strong>读数据-运算-写数据</strong>。尽管每行代码对应的CPU执行个数、执行时间都不尽相同，但是我们只是粗略的估计，因此这里假设每行代码执行的时间都相同，那么在此基础上，这段代码执行的时间可以进行如下计算：</p>
+<p>第二行代码执行时间为time，第三、四行代码执行的时间为$ 2*n*time $，所以此段代码执行的时间为$ (2n + 1)* time $ ，可以看出这段代码执行时间T(n)与每行代码的执行次数成正比。</p>
+<p>按照这个思路，再对以下代码段进行分析：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">      sum += i*j;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>假设每行代码执行的时间依然为time，那么这段代码执行的时间是多少呢？</p>
+<p>第二行代码的执行时间依然为time，第三行代码执行的次数为n次，所以需要的时间为$ n*time $,内层循环第四、五行代码都执行了$ n*n $次,需要的时间为$ 2*n^2*time $。所以此段代码总的执行时间为$(n + 1 + 2n^2)*time $。</p>
+<p>尽管不知道time的具体值，但是通过这两段代码的分析过程，得出一个非常重要的规律：</p>
+<div style="text-align: center; color: red;"><br><blockquote class="blockquote-center"><p>所有的代码执行时间T(n)与每行代码的执行次数成正比<br>$$ T(n) = O(f(n)) $$</p>
+</blockquote><br></div>
+
+<p>其中 $T(n)$ 表示代码执行的时间; n表示数据规模大小; $ f(n) $ 表示每行代码执行次数的总和，因为是一个公式，所以用$ f(n) $ 表示。公式中的O表示代码执行时间 $ T(n) $ 与 $ f(n) $ 成正比。</p>
+<p>所以在第一个例子中 $ T(n) = O(2n + 1) $ ，第二个例子中 $ T(n) = O(2n^2 + n + 1)$ , 这就是大O时间复杂度表示法。大O时间复杂度实际上并不具体表示代码真正执行的时间，而是表示代码执行时间随数据规模增长的变化趋势，所以也叫做渐进时间复杂度，简称时间复杂度。</p>
+<p>在时间复杂度公式中，如果n很大时，公式中的低阶、常量、系数三部分并不影响增长趋势，所以可以先忽略。所以上述两个例子的时间复杂度就可以记为： $ T(n) = O(n) $； $ T(n) = O(n^2) $;</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h3></div><br></div>
+
+<p>前面介绍了大 O 时间复杂度的由来和表示方法，那如何分析一段代码的时间复杂度呢？</p>
+<h4 id="1、只关注循环次数最多的一段代码"><a href="#1、只关注循环次数最多的一段代码" class="headerlink" title="1、只关注循环次数最多的一段代码"></a>1、只关注循环次数最多的一段代码</h4><p>在大 O 表示法中，只是表示一种趋势，通常我们会忽略公式中的常量、低阶、系数，因此只需要记录一个最大的量级就可以了，所以我们在分析一个算法时，只关注循环次数执行次数最多的那一段代码就行了。</p>
+<h4 id="2、加法法则：总复杂度等于量级最大的那段代码的复杂度"><a href="#2、加法法则：总复杂度等于量级最大的那段代码的复杂度" class="headerlink" title="2、加法法则：总复杂度等于量级最大的那段代码的复杂度"></a>2、加法法则：总复杂度等于量级最大的那段代码的复杂度</h4><p>如果一段代码中出现多个循环，那么总的时间复杂度就是各个循环相加得到的，但是往往会忽略低阶、常量，因此只取量级最大的那段代码就可以了。</p>
+<p>注意：<br>当一段代码循环次数是一个常量，比如循环10000、1000000次，只要是一个已知的常量数，且不随数据规模变化，那么该循环照样是一个常量级别的执行时间。</p>
+<h4 id="3、乘法法则-嵌套代码的时间复杂度等于嵌套内外代码复杂度的乘积"><a href="#3、乘法法则-嵌套代码的时间复杂度等于嵌套内外代码复杂度的乘积" class="headerlink" title="3、乘法法则: 嵌套代码的时间复杂度等于嵌套内外代码复杂度的乘积"></a>3、乘法法则: 嵌套代码的时间复杂度等于嵌套内外代码复杂度的乘积</h4><p>比如第二个例子中如果但看外层循环的时间复杂度是 $ O(n) $；内层循环的时间复杂度也是 $O(n)$， 因此总共的时间复杂度就是 $ T(n) = O(n) * O(n) = O(n^2) $ </p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="几种常见时间复杂度"><a href="#几种常见时间复杂度" class="headerlink" title="几种常见时间复杂度"></a>几种常见时间复杂度</h3></div><br></div>
+
+
+<h4 id="1、-O-1"><a href="#1、-O-1" class="headerlink" title="1、$O(1)$"></a>1、$O(1)$</h4><p>O(1) 只是常量级时间复杂度的一种表示方法，并不是指执行了一行代码。只要代码的执行时间不随n的增大而增大，这样的代码时间复杂度都可以记为O(1)。一般情况下，只要代码中不出现循环、递归等，即使有成千上万行代码，时间复杂度也是O(1)。</p>
+<h4 id="2、-O-logN-、O-N-logN"><a href="#2、-O-logN-、O-N-logN" class="headerlink" title="2、$ O(logN)、O(N*logN) $"></a>2、$ O(logN)、O(N*logN) $</h4><p>对数阶的时间复杂度非常常见，同时也是最难分析的一种。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(i &lt;= n)&#123;</span><br><span class="line">  i = i * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，变量i从1取值，第二次为2，第三次为4，第四次为8……,所以i的取值规律为 $$ 2^0 \&nbsp;&nbsp;&nbsp;&nbsp;  2^1 \&nbsp;&nbsp;  2^2 \&nbsp;&nbsp; 2^3 …  2^k… 2^x $$ 当$2^x = n$ 时，循环结束，而循环的次数即为x，所以时间复杂度也为$ O(x=\log_2 N) $。</p>
+<p><br></p>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
       
     </div>
 
@@ -591,8 +631,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/2018-09-08-hexo-安装及配置.html" rel="next" title="hexo-安装及配置">
-                <i class="fa fa-chevron-left"></i> hexo-安装及配置
+              <a href="/posts/2018-09-08-用Markdown来写文章.html" rel="next" title="用Markdown来写文章">
+                <i class="fa fa-chevron-left"></i> 用Markdown来写文章
               </a>
             
           </div>
@@ -739,8 +779,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
@@ -825,7 +863,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要复杂度分析"><span class="nav-number">2.</span> <span class="nav-text">为什么需要复杂度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大O复杂度表示法"><span class="nav-number">3.</span> <span class="nav-text">大O复杂度表示法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要复杂度分析"><span class="nav-number">2.</span> <span class="nav-text">为什么需要复杂度分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大O复杂度表示法"><span class="nav-number">3.</span> <span class="nav-text">大O复杂度表示法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度分析"><span class="nav-number">4.</span> <span class="nav-text">时间复杂度分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、只关注循环次数最多的一段代码"><span class="nav-number">4.1.</span> <span class="nav-text">1、只关注循环次数最多的一段代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、加法法则：总复杂度等于量级最大的那段代码的复杂度"><span class="nav-number">4.2.</span> <span class="nav-text">2、加法法则：总复杂度等于量级最大的那段代码的复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、乘法法则-嵌套代码的时间复杂度等于嵌套内外代码复杂度的乘积"><span class="nav-number">4.3.</span> <span class="nav-text">3、乘法法则: 嵌套代码的时间复杂度等于嵌套内外代码复杂度的乘积</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几种常见时间复杂度"><span class="nav-number">5.</span> <span class="nav-text">几种常见时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、-O-1"><span class="nav-number">5.1.</span> <span class="nav-text">1、$O(1)$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、-O-logN-、O-N-logN"><span class="nav-number">5.2.</span> <span class="nav-text">2、$ O(logN)、O(N*logN) $</span></a></li></ol></li></ol></div>
             
 
           </div>
