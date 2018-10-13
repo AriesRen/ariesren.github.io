@@ -131,6 +131,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[用Markdown来写文章]]></title>
+    <url>%2Fposts%2F2018-09-08-%E7%94%A8Markdown%E6%9D%A5%E5%86%99%E6%96%87%E7%AB%A0.html</url>
+    <content type="text"><![CDATA[MarkdownMarkdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成丰富的HTML页面。 Markdown用一些简单的符号标识不同的标题，将某些文章标记为”粗体“或者斜体，下面就来一起学习一下。 语法1、标题 不同的标题采用不等个数的#号来进行标记，如下所示： 1234# 一级标题## 二级标题### 三级标题#### 四级标题 2、代码块 在需要高亮的代码块的前一行及后一行使用三个反引号“`”，同时第一行反引号后面表面代码块所使用的语言, 如下： ```pyhtonprint (“Hello World!”)``` 3、特殊字符 123**粗体***斜体*&gt; 引用内容]]></content>
+      <categories>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>博客</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo-安装及配置]]></title>
     <url>%2Fposts%2F2018-09-08-hexo-%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE.html</url>
     <content type="text"><![CDATA[前言曾几何时，你是否也想有个自己的博客，抒发自己的心情，总结自己的得失，与人分享喜悦、哀伤、愤怒、忧愁，那么这篇文章你就必须看了，非常简单搭建一个自己的开源博客。 一、预备1、安装Nodejs及npm Nodejs下载地址： 官网下载地址：https://nodejs.org/zh-cn/download/ 2、安装Git Git下载地址： 官网下载地址：https://git-scm.com/download/ 安装完成后，执行如下命令，可以显示版本号就算安装成功了 12345678$ node -vv9.11.1$ npm -v6.3.0$ git --versiongit version 2.17.0.windows.1 二、安装hexo进入命令行，执行如下命令: 1234567891011121、全局安装hexo$ npm install hexo -g2、创建hexo工作目录$ mkdir hexo-blog$ cd hexo-blog3、初始化工作目录$ hexo init4、本地启动hexo$ hexo serve 到此一个hexo博客已经搭建完成了，可以访问 http://localhost:4000/ 查看博客的效果。 当然现在你就可以开始写博客了，默认的配置足够你写作、发表文章了，但是默认的东西有些并不符合自己的要求和审美。所以下面对hexo进行一些配置，以符合自己的要求。 三、hexo配置hexo的配置文件在根目录下_config.yml文件中。本文仅列举几项，其余配置可以参照hexo官网文档进行配置，当然，有兴趣可以参照我的配置 网站配置：12345678# Sitetitle: Aries' blog 网站标题subtitle: 副标题description: 我不生产知识，我只是知识的搬运工。 网站一句话描述keywords: 关键词author: 无名万物 作者language: zh-CN 语言timezone: Asia/Shanghai 时区 文章配置：1234url: http://blog.renhj.org 网站urlroot: / 文章根路径permalink: posts/:year-:month-:day-:title.html 文章urlpermalink_defaults: 四、创建新文章你可以通过以下命令来创建一篇新文章1hexo new [layout] &lt;title&gt; 命令中指令文章的布局，默认为post，可以通过修改_config.yml中的default_layout来修改默认布局，当然也可以在文章Front-Matter上添加布局. 当然也可以新建一个草稿： draft，这种布局在建立时会保存到source/_drafts文件夹，也可以通过publish来将草稿移动到正式文件夹。 12345# 新建草稿文章$ hexo new draft &lt;title&gt;# 将文章正式发布$ hexo publish [layout] &lt;title&gt; Front-matter Front-matter是文章最上方以--- 分割的区域，用于指定个别文件的变量 12345678910---layout: 指定文章的布局属性title： 文章标题data：建立日期updated： 更新日期comments： 是否开启文章的评论功能(如果有的话)tags： 标签categories：分类permalink： 覆盖文章的网址--- 修改美化默认的主题是有点丑，可以去hexo的主题商店 找一个自己喜欢的、漂亮的主题。 本人找的是网上比较流行的nexT的主题，即本博客所使用的主题：hexo nexT主题，更多的配置可以参照nexT官网的配置或者其他文章进行配置。本文就不再这里赘述的，具体效果可以看本博客的。]]></content>
@@ -142,19 +155,6 @@
         <tag>博客</tag>
         <tag>nexT</tag>
         <tag>Github Pages</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[用Markdown来写文章]]></title>
-    <url>%2Fposts%2F2018-09-08-%E7%94%A8Markdown%E6%9D%A5%E5%86%99%E6%96%87%E7%AB%A0.html</url>
-    <content type="text"><![CDATA[MarkdownMarkdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成丰富的HTML页面。 Markdown用一些简单的符号标识不同的标题，将某些文章标记为”粗体“或者斜体，下面就来一起学习一下。 语法1、标题 不同的标题采用不等个数的#号来进行标记，如下所示： 1234# 一级标题## 二级标题### 三级标题#### 四级标题 2、代码块 在需要高亮的代码块的前一行及后一行使用三个反引号“`”，同时第一行反引号后面表面代码块所使用的语言, 如下： ```pyhtonprint (“Hello World!”)``` 3、特殊字符 123**粗体***斜体*&gt; 引用内容]]></content>
-      <categories>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>博客</tag>
-        <tag>Markdown</tag>
       </tags>
   </entry>
 </search>
