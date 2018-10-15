@@ -173,7 +173,7 @@
 <meta property="og:site_name" content="Aries&#39; blog">
 <meta property="og:description" content="前言  我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。 为什么需要复杂度分析  有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-14T13:26:01.952Z">
+<meta property="og:updated_time" content="2018-10-15T02:36:20.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-复杂度分析">
 <meta name="twitter:description" content="前言  我们都知道，数据结构和算法本身解决的是“快”和“省”的问题，即如何让代码运行的更快、更省存储空间。那如何来衡量算法的“快”和“省”呢？这就要用到复杂度分析：时间、空间复杂度分析。复杂度分析是整个算法学习的精髓，掌握了它，数据结构和算法的内容基本就掌握了一半。 为什么需要复杂度分析  有人说，我只要把代码跑一遍，通过统计、监控，就可以得到算法执行的时间和占用的那内存，为什么还要做复杂度分析呢">
@@ -476,7 +476,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-14 21:26:01" itemprop="dateModified" datetime="2018-10-14T21:26:01+08:00">2018-10-14</time>
+                <time title="修改时间：2018-10-15 10:36:20" itemprop="dateModified" datetime="2018-10-15T10:36:20+08:00">2018-10-15</time>
               
             
           </span>
@@ -556,7 +556,7 @@
 <p>这里举一个简单的例子，求解1，2，3……n 的累加和，以下为一个简单的代码实现：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)&#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>从CPU的角度看，每一行代码都执行着类似的操作：<strong>读数据-运算-写数据</strong>。尽管每行代码对应的CPU执行个数、执行时间都不尽相同，但是我们只是粗略的估计，因此这里假设每行代码执行的时间都相同，那么在此基础上，这段代码执行的时间可以进行如下计算：</p>
-<p>第二行代码执行时间为time，第三、四行代码执行的时间为$ 2*n*time $，所以此段代码执行的时间为$ (2n + 1)* time $ ，可以看出这段代码执行时间T(n)与每行代码的执行次数成正比。</p>
+<p>第二行代码执行时间为time，第三、四行代码执行的时间为$ 2\timesn\timestime $，所以此段代码执行的时间为$ (2n + 1)\times time $ ，可以看出这段代码执行时间T(n)与每行代码的执行次数成正比。</p>
 <p>按照这个思路，再对以下代码段进行分析：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">      sum += i*j;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>假设每行代码执行的时间依然为time，那么这段代码执行的时间是多少呢？</p>
@@ -594,10 +594,10 @@
 <p>针对这种情况，加法原则就不正确了，我们将加法原则改为：$ T1(m) + T2(n) = O(f(m) + g(n)) $，但是乘法法则继续有效：$ T1(m) + T2(n) = O(f(m) * f(n)) $。</p>
 <div style="text-align: center;"><br><div class="note success"><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3></div><br></div>
 
-<p>前面讲过，时间复杂度的全程是渐近时间复杂度，表示算法的执行时间与数据规模之间的增长关系。类比一下，空间复杂度的全程就是渐进空间复杂度，表示算法的存储空间与数据规模的增长关系。</p>
+<p>前面讲过，时间复杂度的全称是渐近时间复杂度，表示算法的执行时间与数据规模之间的增长关系。类比一下，空间复杂度的全称就是渐进空间复杂度，表示算法的存储空间与数据规模的增长关系。</p>
 <p>还是拿具体的例子说明(仅供测试,一般没人这么写)</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">  <span class="keyword">for</span>(i; i&lt;n; i++)&#123;</span><br><span class="line">    a[i] = i*<span class="number">1</span>;</span><br><span class="line">    print(a[i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>和分析时间复杂度一样，我们开到第二行申请了一个空间变量i，但是它是常量阶的，跟数据规模n无关，所以可以忽略，第三行申请了一个大小为n的int数组，除此之外，该代码没有占据更多的空间O(n).</p>
+<p>和分析时间复杂度一样，我们看到第二行申请了一个空间变量i，但是它是常量阶的，跟数据规模n无关，所以可以忽略，第三行申请了一个大小为n的int数组，除此之外，该代码没有占据更多的空间O(n).</p>
 <p>我们常见的空间复杂度就是$O(1)、O(n)、O(n^2)$，像$ O(logN)、O(nlogN) $ 这样的对数阶复杂度平时都用不到。空间复杂度分析相对时间复杂度要简单得多。</p>
 <p><br></p>
 

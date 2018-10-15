@@ -165,19 +165,21 @@
 
 
 
-  <meta name="description" content="前言  提到数组，我想你肯定不陌生，甚至还会自信的说他很简单。 是的，在每一种编程语言中，基本都会有数组这种数据类型。尽管数组看起来非常基础、简单，但是我估计很多人都没有理解这个基础数据结构的精髓。 在大部分的数据结构中，数组都是从0开始编号的，但是为什么数组要从0开始，而不是1开始呢？从1开始不是更符合人类的思维习惯吗？ 如何实现随机访问？  什么是数组呢？数组是一种线性表结构，它用一组连续的内">
+  <meta name="description" content="前言  提到数组，我想你肯定不陌生，甚至还会自信的说他很简单。 是的，在每一种编程语言中，基本都会有数组这种数据类型。尽管数组看起来非常基础、简单，但是我估计很多人都没有理解这个基础数据结构的精髓。 在大部分的数据结构中，数组都是从0开始编号的，但是为什么数组要从0开始，而不是1开始呢？从1开始不是更符合人类的思维习惯吗？下面我们通过本篇文章来认识这个问题。 数组如何实现随机访问？  什么是数组呢">
 <meta name="keywords" content="算法,数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-数组">
 <meta property="og:url" content="https://blog.renhj.org/posts/2018-09-10-算法-数组.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="前言  提到数组，我想你肯定不陌生，甚至还会自信的说他很简单。 是的，在每一种编程语言中，基本都会有数组这种数据类型。尽管数组看起来非常基础、简单，但是我估计很多人都没有理解这个基础数据结构的精髓。 在大部分的数据结构中，数组都是从0开始编号的，但是为什么数组要从0开始，而不是1开始呢？从1开始不是更符合人类的思维习惯吗？ 如何实现随机访问？  什么是数组呢？数组是一种线性表结构，它用一组连续的内">
+<meta property="og:description" content="前言  提到数组，我想你肯定不陌生，甚至还会自信的说他很简单。 是的，在每一种编程语言中，基本都会有数组这种数据类型。尽管数组看起来非常基础、简单，但是我估计很多人都没有理解这个基础数据结构的精髓。 在大部分的数据结构中，数组都是从0开始编号的，但是为什么数组要从0开始，而不是1开始呢？从1开始不是更符合人类的思维习惯吗？下面我们通过本篇文章来认识这个问题。 数组如何实现随机访问？  什么是数组呢">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blog.renhj.org/posts/2018-09-10-算法-数组/数组.jpg">
-<meta property="og:updated_time" content="2018-10-14T13:25:39.130Z">
+<meta property="og:image" content="https://blog.renhj.org/posts/2018-09-10-算法-数组/数组删除.jpg">
+<meta property="og:image" content="https://blog.renhj.org/posts/2018-09-10-算法-数组/二维数组.jpg">
+<meta property="og:updated_time" content="2018-10-15T08:09:16.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-数组">
-<meta name="twitter:description" content="前言  提到数组，我想你肯定不陌生，甚至还会自信的说他很简单。 是的，在每一种编程语言中，基本都会有数组这种数据类型。尽管数组看起来非常基础、简单，但是我估计很多人都没有理解这个基础数据结构的精髓。 在大部分的数据结构中，数组都是从0开始编号的，但是为什么数组要从0开始，而不是1开始呢？从1开始不是更符合人类的思维习惯吗？ 如何实现随机访问？  什么是数组呢？数组是一种线性表结构，它用一组连续的内">
+<meta name="twitter:description" content="前言  提到数组，我想你肯定不陌生，甚至还会自信的说他很简单。 是的，在每一种编程语言中，基本都会有数组这种数据类型。尽管数组看起来非常基础、简单，但是我估计很多人都没有理解这个基础数据结构的精髓。 在大部分的数据结构中，数组都是从0开始编号的，但是为什么数组要从0开始，而不是1开始呢？从1开始不是更符合人类的思维习惯吗？下面我们通过本篇文章来认识这个问题。 数组如何实现随机访问？  什么是数组呢">
 <meta name="twitter:image" content="https://blog.renhj.org/posts/2018-09-10-算法-数组/数组.jpg">
 
 
@@ -478,7 +480,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-14 21:25:39" itemprop="dateModified" datetime="2018-10-14T21:25:39+08:00">2018-10-14</time>
+                <time title="修改时间：2018-10-15 16:09:16" itemprop="dateModified" datetime="2018-10-15T16:09:16+08:00">2018-10-15</time>
               
             
           </span>
@@ -541,8 +543,8 @@
 
 <p>提到数组，我想你肯定不陌生，甚至还会自信的说他很简单。</p>
 <p>是的，在每一种编程语言中，基本都会有数组这种数据类型。尽管数组看起来非常基础、简单，但是我估计很多人都没有理解这个基础数据结构的精髓。</p>
-<p>在大部分的数据结构中，数组都是从0开始编号的，但是为什么数组要从0开始，而不是1开始呢？从1开始不是更符合人类的思维习惯吗？</p>
-<div style="text-align: center;"><br><div class="note success"><h3 id="如何实现随机访问？"><a href="#如何实现随机访问？" class="headerlink" title="如何实现随机访问？"></a>如何实现随机访问？</h3></div><br></div>
+<p>在大部分的数据结构中，数组都是从0开始编号的，但是为什么数组要从0开始，而不是1开始呢？从1开始不是更符合人类的思维习惯吗？下面我们通过本篇文章来认识这个问题。</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="数组如何实现随机访问？"><a href="#数组如何实现随机访问？" class="headerlink" title="数组如何实现随机访问？"></a>数组如何实现随机访问？</h3></div><br></div>
 
 <p>什么是数组呢？数组是一种线性表结构，它用一组连续的内存空间，来存储一组具有相同数据类型的数据。</p>
 <p>这里有几个关键词：</p>
@@ -553,7 +555,7 @@
 <p>我们拿一个长度为10的int类型的数组int[] a = new int[10] 来举例。在如下图中，假设计算机给数组a[10] 分配了一块连续的内存空间000-039，其中首地址为000。</p>
 <img src="/posts/2018-09-10-算法-数组/数组.jpg" title="数组">
 <p>我们知道计算机会给每个内存单元分配一个地址，计算机通过地址来访问内存中的数据。当计算机需要随机访问某个数组元素时，它会通过寻址公式，计算出该元素的内存地址。</p>
-<div style="text-align: center; color: red;"><br><blockquote class="blockquote-center"><p>$ a[i] $  $ address $ = $ base $  $ address $ + $ i * data $  $ type $  $ size $</p>
+<div style="text-align: center;"><br><blockquote class="blockquote-center"><p>$$ a[i]\_address = base\_address + i * data\_type\_size $$</p>
 </blockquote><br></div>
 
 <p>其中base address表示数组的基地址，data_type_size表示数组中的每个元素的大小，在这个例子中，数组中存储的int类型，所以data_type_size就是4个字节。</p>
@@ -565,12 +567,46 @@
 <h4 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h4><p>跟插入数据类似，如果要删除第k个位置的数据，为了保持内存的连续性，也需要搬迁数据，不然数组中间就会出现断层，内存就不连续了。</p>
 <p>和插入类似，如果删除数组末尾的数据，则是最好时间复杂度为O(1)；如果删除开头的数据，则最坏时间复杂度为O(n)，平均情况时间复杂度也为O(n)。</p>
 <p>实际上，在某些特殊场景下，我们并不一定追求数组中数据的连续性，如果我们将多次删除操作集中在一起执行，删除的效率是不是会提高很多呢？</p>
+<p>我们继续来看一个例子，数组a[10]中存储了8个元素：a,b,c,d,e,f,g,h。现在我们要依次删除a,b,c这三个元素。</p>
+<img src="/posts/2018-09-10-算法-数组/数组删除.jpg">
+<p>为了避免d,e,f,g这几个数据会被搬移三次，我们可以先记录下已删除的数据，每次的删除并不是真正的搬移数据，只是记录数据已经被删除，当数组没有更多空间存储数据事，我们再进行一次真正的删除操作，这样就大大减少了删除数据之后导致的数据迁移。</p>
+<p>如果你了解JVM，会发现，这不就是JVM的标记清除垃圾回收算法的核心思想吗？没错，数据结构和算法的魅力就在于此，<font color="red"><strong>很多时候我们并不是要去死记硬背某个数据结构或算法，而是要学习他背后的思想和处理技巧，这些东西才是最优价值的</strong></font>。如果你细心留意，不管是在开发还是在架构设计中，总能找到某些数据结构和算法的影子。</p>
+<p><div style="text-align: center;"><br><div class="note success"><h3 id="警惕数组越界问题"><a href="#警惕数组越界问题" class="headerlink" title="警惕数组越界问题"></a>警惕数组越界问题</h3></div><br></div><br>了解数组的几个基本操作后，再来看看数据的访问越界问题。</p>
+<p>这里以一段C语言代码为例来进行说明：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> arr[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(i; i&lt;=<span class="number">3</span>; i++)&#123;</span><br><span class="line">		arr[i] = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"hello world\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你发现问题了吗？这段代码并不是打印三行”hello world”，而是会无限打印”hello world”，这是为什么呢？</p>
+<p>我们知道数组大小为3，分别为a[0]、a[1]、a[2]，而我们代码因为书写错误，for循环结束条件错写为了i&lt;=3而非i&lt;3，所以当i=3时，数组访问越界。</p>
+<p>我们知道，在C语言中，只要不是访问受限的内存，所有的内存空间都是可以自由访问的。而根据我们前面讲的寻址公式，a[3]也会被定位到一个某块不属于数组的内存地址上，而在C语言的内存管理中，在局部变量分配空间的顺序是跟变量的声明顺序直接相关，同时按照内存由高到低的顺序进行空间分配，所以在内存布局中，i变量的地址刚好是在数组arr之后的一个字，所以在循环体中，将arr[3]赋值为0，实际上却是将计数器i的值设为0，这就导致了该函数的死循环。</p>
+<p>关于C语言中编译器关于变量的内存分配顺序可以看此篇文章理解一下: <a href="https://blog.csdn.net/liuhuiyi/article/details/7526889" target="_blank" rel="noopener">https://blog.csdn.net/liuhuiyi/article/details/7526889</a></p>
+<p>数组越界在C语言中是一种未决行为，并没有规定数组访问越界编译器应该如何处理。因为数组访问的本质就是访问一段连续的内存地址，只要数组通过偏移计算得到的内存地址是可用的，那么程序就不会报错。</p>
+<p>所以在这种情况下，一般会出现莫名其妙的错误，而且很多计算机病毒也是利用了代码中数组越界可以访问到非法地址的漏洞，来攻击系统，所以代码中一定要警惕数组的越界访问。</p>
+<p>但并非所有的编程语言都想C一样，将数组越界检查交给程序员来做，像Java、Python本身就会做越界检查，比如java会抛出java.lang.ArrayIndexOutOfBoundsException的异常，Python会有IndexError: list index out of range的错误。</p>
+<p><div style="text-align: center;"><br><div class="note success"><h3 id="容器能否完全代替数组"><a href="#容器能否完全代替数组" class="headerlink" title="容器能否完全代替数组?"></a>容器能否完全代替数组?</h3></div><br></div><br>针对数组类型，很多语言提供了容器类。比如在java中提供了ArrayList、C++ STL中的vector等。那么在项目开发中，什么时候适合用数组，什么时候适合用容器呢？</p>
+<p>以java中ArrayList为例，ArrayList最大的优势就是可以将很多数组操作封装，比如数组的插入、删除等。另外，它还支持动态扩容，当存储空间不够时，它会自动扩容为原来的1.5倍。</p>
+<p>不过由于扩容操作涉及内存申请和数据搬移，是比较耗时的，因此如果事先能确定存储数据的大小，最好在创建ArrayList时实现指定数据的大小。</p>
+<p>作为高级语言编程者，是不是数组就无用武之地了呢？当然不是，有时候用数组会更合适些。</p>
+<p>1、Java ArrayList无法存储基本类型，需要封装为Long、Integer等包装类类型，因此存在一定的拆装箱上的性能损耗，如果特别关注性能，或者要使用基本类型，则可以选择数组。</p>
+<p>2、如果事先知道数据的大小，并且对数据的操作非常简单，用不到ArrayList提供的大部分方法，也可以使用数组。</p>
+<p>对于业务开发，直接使用容器就足够了，省时省力，毕竟一丢丢的性能损耗，不会影响到系统整体的性能，但是如果做一些非常底层的开发，这个时候数组就会优于容器，成为首选。</p>
+<h4 id="解答开篇"><a href="#解答开篇" class="headerlink" title="解答开篇"></a>解答开篇</h4><p>为什么数组的索引是从0开始，而不是从1开始呢？</p>
+<p>从数组存储的内存模型来看，”下标”即索引最确切的定义应该是”偏移(offset)”，如果用arr表示数组的首地址，a[0]就是偏移为0的位置，也就是首地址，a[k]表示偏移k个type_size的位置，所以计算a[k]的内存地址只需要根据如下公式计算即可<br>$$ a[k]\_address = base\_address + k * type\_size $$</p>
+<p>但是如果数组从1开始计数，那我们计算a[k]的内存地址计算公式就会变为：<br>$$ a[k]\_address = base\_address + (k-1) * type\_size $$</p>
+<p>对比两个公式，从1开始的话，每次随机访问数组元素就多了一次减法指令。数组作为非常基础的数据结构，通过下标随机访问数组元素又是非常基础的操作，效率的优化就要尽可能做到极致。所以为了减少一次减法操作指令，数组选择了从小标从0开始，而不是从1开始。</p>
+<p>不过解释的再多，我认为都算不上压倒性的证明，说数组编号非从0开始不可，最主要的原因可能是历史原因。</p>
+<p>C语言设计者用0开始计数数组下标之后，Java、JavaScript等高级语言都效仿了C语言，或者说为了在一定程度上减少C语言程序学习Java的成本，继续沿用了从0开始计数的习惯。但是仍有很多语言中数组并不是从0开始的，比如Matlab。甚至还有一些语言支持负数下标，比如python。</p>
+<h4 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h4><p>1、在数组的删除操作中，提到了JVM的标记清除垃圾回收算法的核心理念，如果熟悉Java、JVM，回顾下JVM的标记清除垃圾回收算法。<br>2、上面讲到一维数组的寻址公式，类比一下，二维数组的内存寻址公式是怎么样的？</p>
+<hr>
+<h5 id="JVM标记清除垃圾回收算法："><a href="#JVM标记清除垃圾回收算法：" class="headerlink" title="JVM标记清除垃圾回收算法："></a>JVM标记清除垃圾回收算法：</h5><p>分为两个阶段，标记和清除。在大多数主流的虚拟机中采用可达性分析算法来判断对象是否存活，在标记阶段，会遍历所有GC ROOTS，将所有GC ROOTS可达对象标记为存活，只有当标记工作完成后，才会进行清理工作。</p>
+<p>该算法最大的问题是会产生连续的内存空间碎片，同时标记和回收的效率都不高，但是对于只有少量垃圾产生时可以采用此种算法。</p>
+<h5 id="二维数组的寻址公式："><a href="#二维数组的寻址公式：" class="headerlink" title="二维数组的寻址公式："></a>二维数组的寻址公式：</h5><img src="/posts/2018-09-10-算法-数组/二维数组.jpg">
+<p>根据上图,对于一个二维数组int arr[m][n]，arr[i][j]的寻址公式为：<br>$$ arr[i][j]\_address = base\_address + (i + n*j)*data\_type\_size $$</p>
 <p><br></p>
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
 
       
     </div>
@@ -846,7 +882,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何实现随机访问？"><span class="nav-number">2.</span> <span class="nav-text">如何实现随机访问？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#低效的“插入”和“删除”"><span class="nav-number">3.</span> <span class="nav-text">低效的“插入”和“删除”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入操作"><span class="nav-number">3.1.</span> <span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除操作"><span class="nav-number">3.2.</span> <span class="nav-text">删除操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组如何实现随机访问？"><span class="nav-number">2.</span> <span class="nav-text">数组如何实现随机访问？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#低效的“插入”和“删除”"><span class="nav-number">3.</span> <span class="nav-text">低效的“插入”和“删除”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入操作"><span class="nav-number">3.1.</span> <span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除操作"><span class="nav-number">3.2.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#警惕数组越界问题"><span class="nav-number">4.</span> <span class="nav-text">警惕数组越界问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器能否完全代替数组"><span class="nav-number">5.</span> <span class="nav-text">容器能否完全代替数组?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解答开篇"><span class="nav-number">5.1.</span> <span class="nav-text">解答开篇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思考题"><span class="nav-number">5.2.</span> <span class="nav-text">思考题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JVM标记清除垃圾回收算法："><span class="nav-number">5.2.1.</span> <span class="nav-text">JVM标记清除垃圾回收算法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二维数组的寻址公式："><span class="nav-number">5.2.2.</span> <span class="nav-text">二维数组的寻址公式：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
