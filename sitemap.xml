@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.renhj.org/about/index.html</loc>
+    
+    <lastmod>2018-10-16T10:06:45.255Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.renhj.org/posts/2018-09-08-%E7%AE%97%E6%B3%95-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90.html</loc>
     
     <lastmod>2018-10-16T07:44:42.619Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://www.renhj.org/posts/2018-09-07-hexo-%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE.html</loc>
     
     <lastmod>2018-10-14T13:25:31.650Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.renhj.org/about/index.html</loc>
-    
-    <lastmod>2018-10-12T07:54:50.588Z</lastmod>
     
   </url>
   
