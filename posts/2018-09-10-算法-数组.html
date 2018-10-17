@@ -169,7 +169,7 @@
 <meta property="og:image" content="https://www.renhj.org/posts/2018-09-10-算法-数组/数组.jpg">
 <meta property="og:image" content="https://www.renhj.org/posts/2018-09-10-算法-数组/数组删除.jpg">
 <meta property="og:image" content="https://www.renhj.org/posts/2018-09-10-算法-数组/二维数组.jpg">
-<meta property="og:updated_time" content="2018-10-15T08:09:16.157Z">
+<meta property="og:updated_time" content="2018-10-17T04:53:43.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-数组">
 <meta name="twitter:description" content="前言  提到数组，我想你肯定不陌生，甚至还会自信的说他很简单。 是的，在每一种编程语言中，基本都会有数组这种数据类型。尽管数组看起来非常基础、简单，但是我估计很多人都没有理解这个基础数据结构的精髓。 在大部分的数据结构中，数组都是从0开始编号的，但是为什么数组要从0开始，而不是1开始呢？从1开始不是更符合人类的思维习惯吗？下面我们通过本篇文章来认识这个问题。 数组如何实现随机访问？  什么是数组呢">
@@ -482,7 +482,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-15 16:09:16" itemprop="dateModified" datetime="2018-10-15T16:09:16+08:00">2018-10-15</time>
+                <time title="修改时间：2018-10-17 12:53:43" itemprop="dateModified" datetime="2018-10-17T12:53:43+08:00">2018-10-17</time>
               
             
           </span>
@@ -603,12 +603,6 @@
 <h5 id="二维数组的寻址公式："><a href="#二维数组的寻址公式：" class="headerlink" title="二维数组的寻址公式："></a>二维数组的寻址公式：</h5><img src="/posts/2018-09-10-算法-数组/二维数组.jpg">
 <p>根据上图,对于一个二维数组int arr[m][n]，arr[i][j]的寻址公式为：<br>$$ arr[i][j]\_address = base\_address + (i + n*j)*data\_type\_size $$</p>
 <p><br></p>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
 
       
     </div>
@@ -999,8 +993,6 @@
 
 
 
-  
-
 
 
 
@@ -1041,11 +1033,6 @@
   
   
     <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/canvas-nest.js@2.0.3/dist/canvas-nest.js"></script>
   
 
 
@@ -1449,6 +1436,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
