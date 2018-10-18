@@ -158,24 +158,25 @@
 
 
 
-  <meta name="description" content="我不生产知识，我只是知识的搬运工。">
-<meta name="keywords" content="算法、博客、hexo、Java、Python、安全、Vue、Angular、前端、Material">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aries&#39; blog">
-<meta property="og:url" content="https://www.renhj.org/categories/hexo/index.html">
+  <meta name="description" content="上一节讲了链表相关的基础知识，有人可能会说基础知识我都掌握了，但是写链表代码还是很费劲怎么办？确实是这样的，想要写好链表代码并不是容易的事，尤其是那些复杂的链表操作，比如链表反转、有序链表合并等，写的时候非常容易出错。 为什么链表代码这么难写？究竟怎么样才能比较轻松的写出正确的链表代码呢？ 只要愿意投入时间，我觉得大多数人都是可以学会的。比如，如果你真能花一整天或者一个周末，就去写链表反转这一个代">
+<meta name="keywords" content="算法,链表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法-怎样写好链表代码">
+<meta property="og:url" content="https://www.renhj.org/posts/2018-09-13-算法-怎样写好链表代码.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="我不生产知识，我只是知识的搬运工。">
+<meta property="og:description" content="上一节讲了链表相关的基础知识，有人可能会说基础知识我都掌握了，但是写链表代码还是很费劲怎么办？确实是这样的，想要写好链表代码并不是容易的事，尤其是那些复杂的链表操作，比如链表反转、有序链表合并等，写的时候非常容易出错。 为什么链表代码这么难写？究竟怎么样才能比较轻松的写出正确的链表代码呢？ 只要愿意投入时间，我觉得大多数人都是可以学会的。比如，如果你真能花一整天或者一个周末，就去写链表反转这一个代">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-18T04:45:03.988Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aries&#39; blog">
-<meta name="twitter:description" content="我不生产知识，我只是知识的搬运工。">
+<meta name="twitter:title" content="算法-怎样写好链表代码">
+<meta name="twitter:description" content="上一节讲了链表相关的基础知识，有人可能会说基础知识我都掌握了，但是写链表代码还是很费劲怎么办？确实是这样的，想要写好链表代码并不是容易的事，尤其是那些复杂的链表操作，比如链表反转、有序链表合并等，写的时候非常容易出错。 为什么链表代码这么难写？究竟怎么样才能比较轻松的写出正确的链表代码呢？ 只要愿意投入时间，我觉得大多数人都是可以学会的。比如，如果你真能花一整天或者一个周末，就去写链表反转这一个代">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.renhj.org/categories/hexo/"/>
+  <link rel="canonical" href="https://www.renhj.org/posts/2018-09-13-算法-怎样写好链表代码.html"/>
 
 
 
@@ -185,7 +186,7 @@
   };
 </script>
 
-  <title>分类: hexo | Aries' blog</title>
+  <title>算法-怎样写好链表代码 | Aries' blog</title>
   
 
 
@@ -241,7 +242,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -310,7 +311,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
@@ -398,94 +399,235 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>hexo<small>分类</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.renhj.org/posts/2018-09-13-算法-怎样写好链表代码.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无名万物">
+      <meta itemprop="description" content="我不生产知识，我只是知识的搬运工。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aries' blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/posts/2018-09-07-hexo-安装及配置.html" itemprop="url">
-              
-                <span itemprop="name">hexo-安装及配置</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">算法-怎样写好链表代码
+              
+            
+          </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-07T18:39:40+08:00"
-              content="2018-09-07" >
-          09-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-13 11:27:46" itemprop="dateCreated datePublished" datetime="2018-09-13T11:27:46+08:00">2018-09-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-18 12:45:03" itemprop="dateModified" datetime="2018-10-18T12:45:03+08:00">2018-10-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上一节讲了链表相关的基础知识，有人可能会说基础知识我都掌握了，但是写链表代码还是很费劲怎么办？确实是这样的，想要写好链表代码并不是容易的事，尤其是那些复杂的链表操作，比如链表反转、有序链表合并等，写的时候非常容易出错。</p>
+<p>为什么链表代码这么难写？究竟怎么样才能比较轻松的写出正确的链表代码呢？</p>
+<p>只要愿意投入时间，我觉得大多数人都是可以学会的。比如，如果你真能花一整天或者一个周末，就去写链表反转这一个代码，多写几次，知道能毫不费力的写出bug free的代码，这个坎儿还会很难跨吗？</p>
+<p>当然，自己有决心并且付出精力是成功的先决条件，除此之外，我们还需要掌握一些技巧和方法。下面我总结了几个写链表的代码技巧，如果能熟练掌握这几个技巧，叫上主动和坚持，轻松拿下链表代码完全没有问题。</p>
+<h4 id="理解指针或引用的含义"><a href="#理解指针或引用的含义" class="headerlink" title="理解指针或引用的含义"></a>理解指针或引用的含义</h4><p>事实上，看懂链表的结构并不是很难，但是一旦把它和指针混在一起，就很容易让人摸不着头脑。所以要想写好链表代码，首先就要理解好指针。</p>
+<p>有些语言有“指针”的概念，比如C语言，有些语言没有指针，取而代之的是“引用”，比如Java、Python等。不管是指针还是引用，实际上，它们的意思都是一样的，都是存储所指对象的内存地址。</p>
+<p>接下来，我会拿C语言中的指针来讲解。如果你用的是Java或者其他语言也没关系，把它理解成引用就可以了。</p>
+<p>实际上，对于指针的理解，只需要记住下面这句话就可以了：<strong>将某个变量赋值给指针，实际上就是将这个变量的地址赋值给指针，或者反过来说，指针中存储了这个变量的内存地址，指向了这个变量，通过指针就能找到这个变量</strong>。</p>
+<p>在编写链表代码的时候，经常会有这样的代码：p-&gt;next = q，这行代码是说p结点中的next指针存储了q结点的内存地址。还有一个更复杂的，也是写链表代码经常用到的：p-&gt;next = p-&gt;next-&gt;next，意思是说p结点的next指针存储了p结点的下下一个结点的内存地址。</p>
+<p>掌握了指针或者引用的概念，应该可以很轻松的看懂链表代码。</p>
+<h4 id="警惕指针丢失和内存泄露"><a href="#警惕指针丢失和内存泄露" class="headerlink" title="警惕指针丢失和内存泄露"></a>警惕指针丢失和内存泄露</h4><p>不知道你有没有这样的感觉，写链表代码的时候指针指来指去，一会就不知道指针到哪里了。所以我们在写代码的时候，一定不要弄丢了指针。</p>
 
       
     </div>
 
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a class="btn" href="/tags/算法/" rel="tag">
+             <i class="fa fa-tag"></i> 算法
+            </a>
+          
+            <a class="btn" href="/tags/链表/" rel="tag">
+             <i class="fa fa-tag"></i> 链表
+            </a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2018-09-12-算法-链表.html" rel="next" title="算法-链表">
+                <i class="fa fa-chevron-left"></i> 算法-链表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2018-09-15-算法-栈.html" rel="prev" title="算法-栈">
+                算法-栈 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -506,8 +648,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -670,6 +821,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#理解指针或引用的含义"><span class="nav-number">1.</span> <span class="nav-text">理解指针或引用的含义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#警惕指针丢失和内存泄露"><span class="nav-number">2.</span> <span class="nav-text">警惕指针丢失和内存泄露</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -842,6 +1009,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
 
   
 
