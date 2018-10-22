@@ -168,7 +168,8 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.renhj.org/posts/2018-09-13-算法-怎样写好链表代码/链表插入.jpg">
 <meta property="og:image" content="https://www.renhj.org/posts/2018-09-13-算法-怎样写好链表代码/带头链表.jpg">
-<meta property="og:updated_time" content="2018-10-19T11:02:34.126Z">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-09-13-算法-怎样写好链表代码/举例.jpg">
+<meta property="og:updated_time" content="2018-10-22T03:32:29.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-怎样写好链表代码">
 <meta name="twitter:description" content="上一节讲了链表相关的基础知识，有人可能会说基础知识我都掌握了，但是写链表代码还是很费劲怎么办？确实是这样的，想要写好链表代码并不是容易的事，尤其是那些复杂的链表操作，比如链表反转、有序链表合并等，写的时候非常容易出错。 为什么链表代码这么难写？究竟怎么样才能比较轻松的写出正确的链表代码呢？ 只要愿意投入时间，我觉得大多数人都是可以学会的。比如，如果你真能花一整天或者一个周末，就去写链表反转这一个代">
@@ -481,7 +482,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-19 19:02:34" itemprop="dateModified" datetime="2018-10-19T19:02:34+08:00">2018-10-19</time>
+                <time title="修改时间：2018-10-22 11:32:29" itemprop="dateModified" datetime="2018-10-22T11:32:29+08:00">2018-10-22</time>
               
             
           </span>
@@ -579,6 +580,29 @@
 <p>当然，这里只是说明哨兵的作用，写代码的时候千万不要写成第二段代码那样，可读性太差了，大部分情况下，我们并不需要追求如此极致的性能。</p>
 <h3 id="重点留意边界条件处理"><a href="#重点留意边界条件处理" class="headerlink" title="重点留意边界条件处理"></a>重点留意边界条件处理</h3><p>软件开发中，代码在以下边界或者异常情况下，最容易产生bug。链表代码也不例外，要实现没有bug的链表代码，一定要在编写的过程中以及编写完成后，检查边界条件是否考虑全面，以及边界条件下代码是否能运行。</p>
 <p>我经常用来检查链表代码是否正确执行的边界条件有这么几个：</p>
+<ul>
+<li>如果链表为空时，代码是否能正常工作？</li>
+<li>如果一个链表只包含了一个结点，代码能否正常工作？</li>
+<li>如果链表只包含两个结点时，代码能否正常工作？</li>
+<li>代码逻辑在处理头结点和尾结点时，是否能正常工作？</li>
+</ul>
+<p>当你写完链表代码之后，除了看下你写的代码在正常情况下能否工作，还要看下在上面我列举的杰哥边界条件下，代码能否正常工作。</p>
+<p>当然边界条件不止我列举的这些，针对不同的场景，可能还有特定的边界条件，需要自己去思考，不过套路都是一样的。</p>
+<p>其实，不光是写链表代码，在写任何代码的时候，千万不要只是实现业务正常情况下的功能就行了，一定要多想想会遇到哪些边界情况或者异常情况，遇到了应该如何应对，这样写出来的代码才够健壮。</p>
+<h3 id="举列画图，辅助思考"><a href="#举列画图，辅助思考" class="headerlink" title="举列画图，辅助思考"></a>举列画图，辅助思考</h3><p>对于稍微复杂的链表操作，比如前面我们提到的单链表反转，指针一会指这，一会指那，总感觉脑容量不够，想不清楚。这时候可以采用举列法和画图法，来进行辅助分析。</p>
+<p>你可以找一个具体的例子，把它画在纸上，释放一些脑容量，留更多的给逻辑思考，这样就会感觉思路清晰很多。比如往单链表中插入一个结点，可以先把各种情况都举一个例子，画出插入前和插入后的链表变化，如图所示：</p>
+<img src="/posts/2018-09-13-算法-怎样写好链表代码/举例.jpg">
+<p>看着图写代码，是不是简单多了。而且当我们写完代码之后，也可以举几个例子，画在纸上，照着代码走一遍，很容易发现代码中的Bug。</p>
+<h3 id="多写多练，没有捷径"><a href="#多写多练，没有捷径" class="headerlink" title="多写多练，没有捷径"></a>多写多练，没有捷径</h3><p>如果你已经理解并掌握了这些方法，但是手写代码还是会出现各种各样的错误，也不要着急，多写多练。把常见的链表操作多写几遍，出问题就一点点调试，熟能生巧。</p>
+<p>下面我精选了5个常见的链表操作，这要把这几个操作写熟练，不熟就多练几遍，保证之后不会在害怕写链表代码。</p>
+<ul>
+<li>单链表反转</li>
+<li>链表中环的检测</li>
+<li>两个有序链表合并</li>
+<li>删除链表倒数第n个结点</li>
+<li>求链表的中间结点</li>
+</ul>
+<p><br><br>我觉得，写链表代码是最考验逻辑思维能力的，因为链表到处都是指针的操作，边界条件的处理，一个不慎就会产生bug。链表代码写的好坏，可以看出一个人写代码是否细心，考虑问题是否全面，思维是否缜密，所以很多面试都喜欢让人手写链表代码。</p>
 
       
     </div>
@@ -708,7 +732,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -778,7 +802,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -862,7 +886,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解指针或引用的含义"><span class="nav-number">1.</span> <span class="nav-text">理解指针或引用的含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#警惕指针丢失和内存泄露"><span class="nav-number">2.</span> <span class="nav-text">警惕指针丢失和内存泄露</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用哨兵简化实现难度"><span class="nav-number">3.</span> <span class="nav-text">利用哨兵简化实现难度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重点留意边界条件处理"><span class="nav-number">4.</span> <span class="nav-text">重点留意边界条件处理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解指针或引用的含义"><span class="nav-number">1.</span> <span class="nav-text">理解指针或引用的含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#警惕指针丢失和内存泄露"><span class="nav-number">2.</span> <span class="nav-text">警惕指针丢失和内存泄露</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用哨兵简化实现难度"><span class="nav-number">3.</span> <span class="nav-text">利用哨兵简化实现难度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重点留意边界条件处理"><span class="nav-number">4.</span> <span class="nav-text">重点留意边界条件处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举列画图，辅助思考"><span class="nav-number">5.</span> <span class="nav-text">举列画图，辅助思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多写多练，没有捷径"><span class="nav-number">6.</span> <span class="nav-text">多写多练，没有捷径</span></a></li></ol></div>
             
 
           </div>

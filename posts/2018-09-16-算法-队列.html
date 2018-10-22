@@ -158,18 +158,18 @@
 
 
 
-  <meta name="description" content="我不生产知识，我只是知识的搬运工。">
+  <meta name="description" content="前言  我们知道，CPU资源是有限的，任务的处理逻辑与线程个数并不是正相关。相反，过多的线程反而会导致CPU频繁切换，处理性能下降。所以，线程池的大小一般都是综合考虑要处理任务的特点与硬件环境，来事先设置的。 当我们向一个固定大小的线程池中请求一个线程时，如果线程池中没有空闲资源了，这个时候线程池如何处理这个请求？是拒绝请求还是排队请求？各种处理策略又是如何实现的？ 其实，这些问题并不复杂，其底层">
 <meta name="keywords" content="算法,队列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-队列">
 <meta property="og:url" content="https://www.renhj.org/posts/2018-09-16-算法-队列.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="我不生产知识，我只是知识的搬运工。">
+<meta property="og:description" content="前言  我们知道，CPU资源是有限的，任务的处理逻辑与线程个数并不是正相关。相反，过多的线程反而会导致CPU频繁切换，处理性能下降。所以，线程池的大小一般都是综合考虑要处理任务的特点与硬件环境，来事先设置的。 当我们向一个固定大小的线程池中请求一个线程时，如果线程池中没有空闲资源了，这个时候线程池如何处理这个请求？是拒绝请求还是排队请求？各种处理策略又是如何实现的？ 其实，这些问题并不复杂，其底层">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-12T02:53:08.684Z">
+<meta property="og:updated_time" content="2018-10-22T06:32:43.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-队列">
-<meta name="twitter:description" content="我不生产知识，我只是知识的搬运工。">
+<meta name="twitter:description" content="前言  我们知道，CPU资源是有限的，任务的处理逻辑与线程个数并不是正相关。相反，过多的线程反而会导致CPU频繁切换，处理性能下降。所以，线程池的大小一般都是综合考虑要处理任务的特点与硬件环境，来事先设置的。 当我们向一个固定大小的线程池中请求一个线程时，如果线程池中没有空闲资源了，这个时候线程池如何处理这个请求？是拒绝请求还是排队请求？各种处理策略又是如何实现的？ 其实，这些问题并不复杂，其底层">
 
 
 
@@ -478,7 +478,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-12 10:53:08" itemprop="dateModified" datetime="2018-10-12T10:53:08+08:00">2018-10-12</time>
+                <time title="修改时间：2018-10-22 14:32:43" itemprop="dateModified" datetime="2018-10-22T14:32:43+08:00">2018-10-22</time>
               
             
           </span>
@@ -537,7 +537,15 @@
       
 
       
-        
+        <div style="text-align: center;"><br><div class="note success"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3></div><br></div>
+
+<p>我们知道，CPU资源是有限的，任务的处理逻辑与线程个数并不是正相关。相反，过多的线程反而会导致CPU频繁切换，处理性能下降。所以，线程池的大小一般都是综合考虑要处理任务的特点与硬件环境，来事先设置的。</p>
+<p>当我们向一个固定大小的线程池中请求一个线程时，如果线程池中没有空闲资源了，这个时候线程池如何处理这个请求？是拒绝请求还是排队请求？各种处理策略又是如何实现的？</p>
+<p>其实，这些问题并不复杂，其底层的数据结构就是今天的内容，队列(queue)。</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="如何理解队列"><a href="#如何理解队列" class="headerlink" title="如何理解队列"></a>如何理解队列</h3></div><br></div>
+
+<p>队列这个概念非常好理解，你可以把它想象成排队买票，先来的先买，后来的人只能站末尾，不允许插队。<strong>先进者先出，这就是典型的队列</strong>。</p>
+
       
     </div>
 
@@ -637,8 +645,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -657,7 +674,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -727,7 +744,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -801,6 +818,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何理解队列"><span class="nav-number">2.</span> <span class="nav-text">如何理解队列</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
