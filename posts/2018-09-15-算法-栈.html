@@ -166,7 +166,7 @@
 <meta property="og:site_name" content="Aries&#39; blog">
 <meta property="og:description" content="前言  浏览器的前进、后退功能，我想你肯定很熟悉吧？ 当你依次访问完一连串页面a-b-c-d之后，点击浏览器的后退按钮，就可以查看之前浏览过的页面c-b-a。当后退到a页面之后，点击前进按钮，可以重新进入页面b-c-d。但是如果进入页面b之后，点击了两一个页面，那就无法通过前进后退页面进入c-d了。 假如你是浏览器的开发设计者，你会如何实现这个功能呢？带着这个问题，我们来看一下“栈”这个数据结构。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-23T10:25:39.399Z">
+<meta property="og:updated_time" content="2018-10-24T10:44:23.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-栈">
 <meta name="twitter:description" content="前言  浏览器的前进、后退功能，我想你肯定很熟悉吧？ 当你依次访问完一连串页面a-b-c-d之后，点击浏览器的后退按钮，就可以查看之前浏览过的页面c-b-a。当后退到a页面之后，点击前进按钮，可以重新进入页面b-c-d。但是如果进入页面b之后，点击了两一个页面，那就无法通过前进后退页面进入c-d了。 假如你是浏览器的开发设计者，你会如何实现这个功能呢？带着这个问题，我们来看一下“栈”这个数据结构。">
@@ -478,7 +478,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-23 18:25:39" itemprop="dateModified" datetime="2018-10-23T18:25:39+08:00">2018-10-23</time>
+                <time title="修改时间：2018-10-24 18:44:23" itemprop="dateModified" datetime="2018-10-24T18:44:23+08:00">2018-10-24</time>
               
             
           </span>
@@ -544,7 +544,26 @@
 <p>假如你是浏览器的开发设计者，你会如何实现这个功能呢？带着这个问题，我们来看一下“栈”这个数据结构。</p>
 <div style="text-align: center;"><br><div class="note success"><h3 id="如何理解栈？"><a href="#如何理解栈？" class="headerlink" title="如何理解栈？"></a>如何理解栈？</h3></div><br></div>
 
-<p>关于栈，举一个非常贴切的例子。比如叠盘子，我们放盘子的时候都是从下往上一个一个放。</p>
+<p>关于栈，举一个非常贴切的例子。比如叠盘子，我们放盘子的时候都是从下往上一个一个放。取的时候，我们也是从上往下一个一个取，不能从中间抽取。<strong>先进者后出，后进者先出，这就是典型的栈结构</strong>。</p>
+<p>从栈的操作特性上来看，<strong>栈是一种操作受限的线性表</strong>，只允许在一端插入和删除数据。</p>
+<p>我第一次接触这种数据结构的时候，就对它存在的意义产生了很大的疑惑。因为相比数组和链表，栈带给我的只有限制，并没有任何优势。那我直接使用数组或者链表就好了？为什么还要用这个“操作受限”的数据结构呢？</p>
+<p>事实上，从功能上来说，数组和链表确实可以代替栈，但是你要知道，特定的数据结构是对特定场景的抽象，而且数组和链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然就更容易出错。</p>
+<p><strong>当某个数据集合只涉及在一端插入和删除数据时，并且满足先进后出、后进先出的特性，我们就应该用栈这种数据结构</strong>。</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="如何实现一个栈？"><a href="#如何实现一个栈？" class="headerlink" title="如何实现一个栈？"></a>如何实现一个栈？</h3></div><br></div>
+
+<p>从刚才栈的定义里可以看出，栈主要包含两个操作，入栈和出栈。也就是在在栈顶插入一个数据和从栈顶删除一个数据。理解了栈的定义之后，我们来看一看如何用代码实现一个栈。</p>
+<p>实际上，栈可以用数组来实现，也可以用链表来实现。用数组实现的栈，我们叫做<strong>顺序栈</strong>，用链表实现的栈，我们叫做<strong>链式栈</strong>。</p>
+<h4 id="基于数组实现的顺序栈"><a href="#基于数组实现的顺序栈" class="headerlink" title="基于数组实现的顺序栈"></a>基于数组实现的顺序栈</h4><p>我这里用Java实现一个基于数组的顺序栈，基于链表的实现，可以自己写一下。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基于数组实现的链式栈</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayStack</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>了解了定义和基本操作，那它的操作时间、空间复杂度是多少呢？</p>
+<p>不管是链式栈还是顺序栈，我们存储数据需要一个大小为n的数组就够了。在入栈和出栈的过程中，只需要一两个临时变量存储空间，因此时间复杂度是O(1)。</p>
+<p>注意这里存储数据需要一个大小为n的数组，并不是说空间复杂度是O(n)，因为这n个空间是必须的，无法省掉。所以我们说空间复杂度的时候，是指除了原本的数据存储空间外，算法运行还需要额外的存储空间。</p>
+<p>时间复杂度分析：不管是入栈、出栈，都只涉及栈顶个别数据的操作，因此时间复杂度为O(1)。</p>
+<h4 id="支持动态扩容的顺序栈"><a href="#支持动态扩容的顺序栈" class="headerlink" title="支持动态扩容的顺序栈"></a>支持动态扩容的顺序栈</h4><p>刚才那个基于数组实现的顺序栈，是一个固定大小的栈，也就是说，在初始化后需要实现指定栈的大小，当栈满之后，就无法在王栈里添加数据了，尽管链式栈的大小不受限，但是要存储next指针，内存消耗相对较多。那我们如何实现一个可以支持动态扩容的栈呢？</p>
+<p>还记得，在数组那一节，要如何来实现一个支持动态扩容的数组吗？当数组空间不足时，我们重新申请一块更大的内存，将原来数组中的数据拷贝过去，这样就实现了一个支持动态扩容的数组。</p>
+<p>所以，如果实现一个支持动态扩容的栈，我们只需要底层依赖一个支持动态扩容的数组就可以了。当栈满了之后，我们就申请一个更大的数组，将原来的数据搬移到新的数组中。</p>
+<p>实际上，支持动态扩容的顺序栈，我们开发中并不经常用到。这块我们复习一下复杂度分析方法。现在我们来分析一下支持动态扩容的顺序栈的入栈、出栈时间复杂度。</p>
+<p>对于出栈操作来说，不会涉及到内存的重新申请和数据搬移，所以出栈的时间复杂度仍然是O(1)。但是对于入栈操作来说，情况就不一样了，当栈中有空闲空间时，入栈操作</p>
 
       
     </div>
@@ -826,7 +845,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何理解栈？"><span class="nav-number">2.</span> <span class="nav-text">如何理解栈？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何理解栈？"><span class="nav-number">2.</span> <span class="nav-text">如何理解栈？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何实现一个栈？"><span class="nav-number">3.</span> <span class="nav-text">如何实现一个栈？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于数组实现的顺序栈"><span class="nav-number">3.1.</span> <span class="nav-text">基于数组实现的顺序栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持动态扩容的顺序栈"><span class="nav-number">3.2.</span> <span class="nav-text">支持动态扩容的顺序栈</span></a></li></ol></li></ol></div>
             
 
           </div>
