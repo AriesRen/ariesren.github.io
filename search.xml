@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微服务面试题]]></title>
+    <url>%2Fposts%2F2018-11-02-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9D%A2%E8%AF%95%E9%A2%98.html</url>
+    <content type="text"><![CDATA[(adsbygoogle = window.adsbygoogle || []).push({});]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[数据库面试题]]></title>
+    <url>%2Fposts%2F2018-11-02-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98.html</url>
+    <content type="text"><![CDATA[1、SQL优化的常见方法2、SQL索引的顺序、字段的顺序3、查看SQL索引4、Mysql分页查询语句5、Mysql的事物特性和隔离级别6、sql having的使用场景 (adsbygoogle = window.adsbygoogle || []).push({});]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Dubbo面试题]]></title>
+    <url>%2Fposts%2F2018-11-02-Dubbo%E9%9D%A2%E8%AF%95%E9%A2%98.html</url>
+    <content type="text"><![CDATA[(adsbygoogle = window.adsbygoogle || []).push({});]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Spring面试题]]></title>
+    <url>%2Fposts%2F2018-11-02-Spring%E9%9D%A2%E8%AF%95%E9%A2%98.html</url>
+    <content type="text"><![CDATA[1、consul的可靠性2、spring的原理，AOP/IOC原理3、spring bean生命周期4、 (adsbygoogle = window.adsbygoogle || []).push({});]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Java面试题]]></title>
+    <url>%2Fposts%2F2018-11-02-Java%E9%9D%A2%E8%AF%95%E9%A2%98.html</url>
+    <content type="text"><![CDATA[1、HashMap和HashTable区别HashMap是HashTable的轻量实现（非线程安全），他们都实现的Map接口，主要区别在于：线程安全，同步，性能 HashTable继承Dictionary，HashMap继承的是java2出现的Map接口； HashMap允许将null作为key或value，hashtable不允许； HashMap是非同步的，HashTable是同步的(synchronized),所以HashMap线程不安全，而HashTable是线程安全的，多个线程可以共享一个HashTbale而不需要为自己的方法实现同步。Java5提供了ConcurrentMap，用来替代HashTable，比HashTable扩展性好； 由于HashMap是非线程安全的，所以单一线程访问，HashMap性能要高于HashTable； HashMap的迭代器（Iterator）是fail-fast迭代器，HashTable的enumerator迭代器不是fail-fast的。 HashMap把HashTable的contains方法去掉了，换成了containsValue和containsKey HashTable中数组默认大小是11，扩容方法是old*2+1;HashMap默认大小是16，扩容每次为2的指数大小 2、Object的hashcode方法，equals方法，常用的地方3、HashMap的原理应用场景4、JDK中有哪些线程池5、TCP/UDP区别6、查找一个数组的中位数7、反射的机制8、Object类中的方法9、对象比较是否相等10、toString方法的常用地方，为什么要重写该方法11、HashMap put方法怎么判断是否是重复方法12、Set和List的区别13、ArrayList和LinkedList的区别14、TreeSet对存入的数据有什么要求吗？15、HashSet是不是线程安全的16、Java中有哪些线程安全的Map17、CocurrentHashMap是怎么做到线程安全的18、如何保证线程安全问题19、volatile原子性问题？为什么i++不支持原子性20、CAS操作21、lock和synchronized区别22、公平锁和非公平锁23、Java读写锁，读写锁解决的问题 (adsbygoogle = window.adsbygoogle || []).push({});]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[漏洞靶场Vulhub使用]]></title>
     <url>%2Fposts%2F2018-11-01-%E6%BC%8F%E6%B4%9E%E9%9D%B6%E5%9C%BAVulhub%E4%BD%BF%E7%94%A8.html</url>
     <content type="text"><![CDATA[前言 Vulhub是一个面向大众的开源漏洞靶场，采用docker进行搭建，但是无需docker知识，简单执行两条命令即可编译、运行一个完整的靶场环境。该项目旨在让漏洞复现变得更加简单，让安全研究人员更专注于漏洞本身。 安装 我在Centos7上进行的如下步骤，如果在其他类型的机器上，可以参照进行各个环境的安装 123456# 安装gityum install git# 安装docker并启动dockeryum install docker &amp;&amp; systemctl start docker# 安装docker-composeyum install docker-compose 由于该漏洞环境镜像均来自于Dockerhub/Github/软件官网，所以在国内访问可能会存在速度慢、丢包等问题，导致环境地洞太卡，影响正常使用，请自行解决翻墙问题，或者采用加速器进行加速。 docker-compose用户组合服务和内网，有的环境涉及到多个容器、端口等，docker-compose可以做到环境的一键化管理，用户不需要再学习各种参数和用法，只需要简单的执行docker-compose up -d即可启动容器环境。 安装完上述环境之后，可以通过以下命令来下载vulhub环境到任何目录 1git clone https://github.com/vulhub/vulhub.git 启动漏洞环境 docker-compose会自动查找当前目录下的配置文件(默认文件名为docker-compose.xml),并根据其内容编译镜像和启动容器。所以，要运行某个漏洞靶场，需要先进入该漏洞所在的目录。 在vulhub中选择某个环境，进入对应目录。如Flask服务端模板注入漏洞，我们进入flask/ssti目录，执行如下命令，进行漏洞靶场的编译和运行：123cd flask/sstidocker-compose builddocker-compose up -d (adsbygoogle = window.adsbygoogle || []).push({});]]></content>
@@ -61,7 +86,7 @@
   <entry>
     <title><![CDATA[算法-队列]]></title>
     <url>%2Fposts%2F2018-09-16-%E7%AE%97%E6%B3%95-%E9%98%9F%E5%88%97.html</url>
-    <content type="text"><![CDATA[前言 我们知道，CPU资源是有限的，任务的处理逻辑与线程个数并不是正相关。相反，过多的线程反而会导致CPU频繁切换，处理性能下降。所以，线程池的大小一般都是综合考虑要处理任务的特点与硬件环境，来事先设置的。 当我们向一个固定大小的线程池中请求一个线程时，如果线程池中没有空闲资源了，这个时候线程池如何处理这个请求？是拒绝请求还是排队请求？各种处理策略又是如何实现的？ 其实，这些问题并不复杂，其底层的数据结构就是今天的内容，队列(queue)。 如何理解队列 队列这个概念非常好理解，你可以把它想象成排队买票，先来的先买，后来的人只能站末尾，不允许插队。先进者先出，这就是典型的队列。 我们知道，栈只支持两个操作：入栈push()和出栈pop()，队列和栈非常类似，支持的操作只有：入队enqueue()，将一个数据方法队尾，出对dequeue()，从队头取出一个数据。 所以，队列跟栈一样，也是一种操作受限的线性表数据结构。 队列的概念很好理解，基本操作也很容易掌握。作为一种非常基础的数据结构，队列的应用也非常广泛。特别是一些具有额外特性的队列，比如循环队列、阻塞队列、并发队列。它们在很多片底层系统、框架、中间件的开发中，起着关键性的作用。比如高性能队列Disruptor、Linux环形存储，都用到了循环队列；java.concurent并发包中用到了ArrayBlockingQueue来实现公平锁等。 顺序队列和循环队列 我们知道了，队列跟栈一样，也是一种抽象的数据结构。它具有先进先出的特性，支持在队尾插入元素，在对头删除元素，那么究竟该如何实现一个队列呢？ 跟栈一样，队列可以用数组实现，也可以用链表实现。用数组实现的栈叫做顺序栈，用链表实现的栈叫做链式栈。同样，用数组实现的队列叫做顺序队列，用链表实现的队列叫做链式队列。 先来看下基于数组的实现方法。我这里采用java语言进行实现，不会涉及高级语法。 12345678910111213141516171819202122232425262728293031323334353637// 基于数组实现的队列public class ArrayQueue&lt;T&gt;&#123; // 数组items private T[] items; // 队列大小 private int size=0; private int capacity; // head表示队头下标，tail表示队尾下标 private int head=0; private int tail=0; public ArrayQueue()&#123; this(10); // 队列默认容量给10 &#125; public ArrayQueue(int capacity)&#123; this.items = new T[capacity]; this.capacity = capacity; &#125; public boolean enqueue(T val)&#123; if(size == capacity)&#123;return false;&#125; // 队列满了 items[size] = val; size ++ ; tail = size; return true; &#125; public T dequeue()&#123; if (size == 0) &#123; return; &#125; T res = items[head]; head++; return res; &#125;&#125; (adsbygoogle = window.adsbygoogle || []).push({});]]></content>
+    <content type="text"><![CDATA[前言 我们知道，CPU资源是有限的，任务的处理逻辑与线程个数并不是正相关。相反，过多的线程反而会导致CPU频繁切换，处理性能下降。所以，线程池的大小一般都是综合考虑要处理任务的特点与硬件环境，来事先设置的。 当我们向一个固定大小的线程池中请求一个线程时，如果线程池中没有空闲资源了，这个时候线程池如何处理这个请求？是拒绝请求还是排队请求？各种处理策略又是如何实现的？ 其实，这些问题并不复杂，其底层的数据结构就是今天的内容，队列(queue)。 如何理解队列 队列这个概念非常好理解，你可以把它想象成排队买票，先来的先买，后来的人只能站末尾，不允许插队。先进者先出，这就是典型的队列。 我们知道，栈只支持两个操作：入栈push()和出栈pop()，队列和栈非常类似，支持的操作只有：入队enqueue()，将一个数据方法队尾，出对dequeue()，从队头取出一个数据。 所以，队列跟栈一样，也是一种操作受限的线性表数据结构。 队列的概念很好理解，基本操作也很容易掌握。作为一种非常基础的数据结构，队列的应用也非常广泛。特别是一些具有额外特性的队列，比如循环队列、阻塞队列、并发队列。它们在很多片底层系统、框架、中间件的开发中，起着关键性的作用。比如高性能队列Disruptor、Linux环形存储，都用到了循环队列；java.concurent并发包中用到了ArrayBlockingQueue来实现公平锁等。 顺序队列和循环队列 我们知道了，队列跟栈一样，也是一种抽象的数据结构。它具有先进先出的特性，支持在队尾插入元素，在对头删除元素，那么究竟该如何实现一个队列呢？ 跟栈一样，队列可以用数组实现，也可以用链表实现。用数组实现的栈叫做顺序栈，用链表实现的栈叫做链式栈。同样，用数组实现的队列叫做顺序队列，用链表实现的队列叫做链式队列。 先来看下基于数组的实现方法。我这里采用java语言进行实现，不会涉及高级语法。 123456789101112131415161718192021222324252627282930313233343536// 基于数组实现的队列public class ArrayQueue&lt;T&gt;&#123; // 数组items private T[] items; // 队列大小 private int size=0; private int capacity; // head表示队头下标，tail表示队尾下标 private int head=0; private int tail=0; public ArrayQueue()&#123; this(10); // 队列默认容量给10 &#125; public ArrayQueue(int capacity)&#123; this.items = new T[capacity]; this.capacity = capacity; &#125; public boolean enqueue(T val)&#123; if(size == capacity)&#123;return false;&#125; // 队列满了 items[size] = val; size ++ ; tail = size; return true; &#125; public T dequeue()&#123; if (size == 0) &#123; return; &#125; T res = items[head]; head++; return res; &#125;&#125; 比起栈的数组实现，队列的数组实现稍微有点复杂。 对于栈来说，我们只需要一个栈顶指针就可以了，但是队列需要两个指针：一个head指针，指向队头；一个tail指针，指向队尾。 你可以结合下面这幅图来理解。当a、b、c、d依次入队之后，指针中的head指针指向下标为0的位置，tail指针指向下标为4的位置。 当我们调用两次出队操作之后，队列中的head指针指向下标为2的位置，tail仍然指向下标为4的位置。 你肯定已经发现了，随着不停的入队、出队操作，head、tail都会持续往后移动。当tail移动到最右边，即使数组中还有空闲空间，也无法继续往队列中添加数据了。这个问题如何解决呢？ 在数组那一节中，我们遇到过同样的问题，数组的删除操作会导致数组中的数据不连续，还记得我们怎么解决得吗？数据搬移！，但是每次出队时都相当于删除数组下标为0的数据，要搬移整个队列中的数据，这样队列的出队时间复杂度就从原来的O(1)变为了O(n)，能不能优化呢？ 实际上，我们在出队时可以不用搬移数据，如果没有空闲空间了，我们只需要在入队时，在集中触发一次数据的搬移操作。借助这个思想，出队函数保持不变，我们稍加改造一下入队函数enqueue()实现，就可以轻松解决刚才的问题了。 123456789101112public boolean enqueue(T val)&#123; if(size == capacity)&#123;return false;&#125; // 队列满了 // 每次入队操作都进行数据搬移 for (int i=head;i&lt;tail;i++) &#123; // 将head到tail的数据搬移到0到size的位置 items[i-head] = items[i] &#125; items[size] = val; size ++ ; tail = size; return true;&#125; (adsbygoogle = window.adsbygoogle || []).push({});]]></content>
       <categories>
         <category>算法</category>
       </categories>

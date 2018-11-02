@@ -1,3 +1,8 @@
+https://www.renhj.org/posts/2018-11-02-微服务面试题.html
+https://www.renhj.org/posts/2018-11-02-数据库面试题.html
+https://www.renhj.org/posts/2018-11-02-Dubbo面试题.html
+https://www.renhj.org/posts/2018-11-02-Spring面试题.html
+https://www.renhj.org/posts/2018-11-02-Java面试题.html
 https://www.renhj.org/posts/2018-11-01-漏洞靶场Vulhub使用.html
 https://www.renhj.org/posts/2018-09-25-算法-排序(下).html
 https://www.renhj.org/posts/2018-09-23-算法-排序(中).html
