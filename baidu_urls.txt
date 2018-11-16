@@ -1,3 +1,7 @@
+https://www.renhj.org/posts/2018-11-13-Java反序列化漏洞浅析.html
+https://www.renhj.org/posts/2018-11-09-算法-二分查找-下.html
+https://www.renhj.org/posts/2018-11-09-算法-二分查找-上.html
+https://www.renhj.org/posts/2018-11-09-算法-排序优化.html
 https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法.html
 https://www.renhj.org/posts/2018-11-02-微服务面试题.html
 https://www.renhj.org/posts/2018-11-02-数据库面试题.html
