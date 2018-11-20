@@ -166,7 +166,7 @@
 <meta property="og:site_name" content="Aries&#39; blog">
 <meta property="og:description" content="1、SQL优化的常见方法2、SQL索引的顺序、字段的顺序3、查看SQL索引4、Mysql分页查询语句5、Mysql的事物特性和隔离级别 事务特性(ACID) 原子性(Atomicity):一个事务必须视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚。 一致性(Consistency):数据库总是从一个一致性的状态转移到另一个一致性的状态 隔离性(Isolati">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-16T03:25:26.447Z">
+<meta property="og:updated_time" content="2018-11-16T10:51:27.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库面试题">
 <meta name="twitter:description" content="1、SQL优化的常见方法2、SQL索引的顺序、字段的顺序3、查看SQL索引4、Mysql分页查询语句5、Mysql的事物特性和隔离级别 事务特性(ACID) 原子性(Atomicity):一个事务必须视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚。 一致性(Consistency):数据库总是从一个一致性的状态转移到另一个一致性的状态 隔离性(Isolati">
@@ -235,13 +235,13 @@
 
 
   <!-- google ads auto 广告 -->
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!--   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
        (adsbygoogle = window.adsbygoogle || []).push({
             google_ad_client: "ca-pub-4127326375481893",
             enable_page_level_ads: true
        });
-  </script>
+  </script> -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -491,7 +491,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-16 11:25:26" itemprop="dateModified" datetime="2018-11-16T11:25:26+08:00">2018-11-16</time>
+                <time title="修改时间：2018-11-16 18:51:27" itemprop="dateModified" datetime="2018-11-16T18:51:27+08:00">2018-11-16</time>
               
             
           </span>
@@ -548,7 +548,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="6、sql-having的使用场景"><a href="#6、sql-having的使用场景" class="headerlink" title="6、sql having的使用场景"></a>6、sql having的使用场景</h4><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<h4 id="6、sql-having的使用场景"><a href="#6、sql-having的使用场景" class="headerlink" title="6、sql having的使用场景"></a>6、sql having的使用场景</h4><h4 id="7、Mysql数据库的索引及原理"><a href="#7、Mysql数据库的索引及原理" class="headerlink" title="7、Mysql数据库的索引及原理"></a>7、Mysql数据库的索引及原理</h4><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
@@ -838,7 +838,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、SQL优化的常见方法"><span class="nav-number">1.</span> <span class="nav-text">1、SQL优化的常见方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、SQL索引的顺序、字段的顺序"><span class="nav-number">2.</span> <span class="nav-text">2、SQL索引的顺序、字段的顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、查看SQL索引"><span class="nav-number">3.</span> <span class="nav-text">3、查看SQL索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、Mysql分页查询语句"><span class="nav-number">4.</span> <span class="nav-text">4、Mysql分页查询语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、Mysql的事物特性和隔离级别"><span class="nav-number">5.</span> <span class="nav-text">5、Mysql的事物特性和隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、sql-having的使用场景"><span class="nav-number">6.</span> <span class="nav-text">6、sql having的使用场景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、SQL优化的常见方法"><span class="nav-number">1.</span> <span class="nav-text">1、SQL优化的常见方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、SQL索引的顺序、字段的顺序"><span class="nav-number">2.</span> <span class="nav-text">2、SQL索引的顺序、字段的顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、查看SQL索引"><span class="nav-number">3.</span> <span class="nav-text">3、查看SQL索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、Mysql分页查询语句"><span class="nav-number">4.</span> <span class="nav-text">4、Mysql分页查询语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、Mysql的事物特性和隔离级别"><span class="nav-number">5.</span> <span class="nav-text">5、Mysql的事物特性和隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、sql-having的使用场景"><span class="nav-number">6.</span> <span class="nav-text">6、sql having的使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、Mysql数据库的索引及原理"><span class="nav-number">7.</span> <span class="nav-text">7、Mysql数据库的索引及原理</span></a></li></ol></div>
             
 
           </div>
