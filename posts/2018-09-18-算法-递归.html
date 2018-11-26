@@ -158,18 +158,18 @@
 
 
 
-  <meta name="description" content="前言  推荐注册返佣金这个功能我想你应该不陌生吧？现在很多app都有这个功能。这个功能中，用户A推荐用户B注册，用户B又推荐了用户C注册，我们可以说C的“最终推荐人”为用户A，用户B的“最终推荐人”也为用户A，用户A没有“最终推荐人”。 一般来说，我们会通过数据库记录这种推荐关系，在数据库表中，我们可以记录两行数据，其中actor_id表示用户id，referrer_id表示推荐人id。 前言">
+  <meta name="description" content="前言  推荐注册返佣金这个功能我想你应该不陌生吧？现在很多app都有这个功能。这个功能中，用户A推荐用户B注册，用户B又推荐了用户C注册，我们可以说C的“最终推荐人”为用户A，用户B的“最终推荐人”也为用户A，用户A没有“最终推荐人”。 一般来说，我们会通过数据库记录这种推荐关系，在数据库表中，我们可以记录两行数据，其中actor_id表示用户id，referrer_id表示推荐人id。 基于这个">
 <meta name="keywords" content="算法,递归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-递归">
 <meta property="og:url" content="https://www.renhj.org/posts/2018-09-18-算法-递归.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="前言  推荐注册返佣金这个功能我想你应该不陌生吧？现在很多app都有这个功能。这个功能中，用户A推荐用户B注册，用户B又推荐了用户C注册，我们可以说C的“最终推荐人”为用户A，用户B的“最终推荐人”也为用户A，用户A没有“最终推荐人”。 一般来说，我们会通过数据库记录这种推荐关系，在数据库表中，我们可以记录两行数据，其中actor_id表示用户id，referrer_id表示推荐人id。 前言">
+<meta property="og:description" content="前言  推荐注册返佣金这个功能我想你应该不陌生吧？现在很多app都有这个功能。这个功能中，用户A推荐用户B注册，用户B又推荐了用户C注册，我们可以说C的“最终推荐人”为用户A，用户B的“最终推荐人”也为用户A，用户A没有“最终推荐人”。 一般来说，我们会通过数据库记录这种推荐关系，在数据库表中，我们可以记录两行数据，其中actor_id表示用户id，referrer_id表示推荐人id。 基于这个">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-21T10:36:49.444Z">
+<meta property="og:updated_time" content="2018-11-26T16:05:19.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-递归">
-<meta name="twitter:description" content="前言  推荐注册返佣金这个功能我想你应该不陌生吧？现在很多app都有这个功能。这个功能中，用户A推荐用户B注册，用户B又推荐了用户C注册，我们可以说C的“最终推荐人”为用户A，用户B的“最终推荐人”也为用户A，用户A没有“最终推荐人”。 一般来说，我们会通过数据库记录这种推荐关系，在数据库表中，我们可以记录两行数据，其中actor_id表示用户id，referrer_id表示推荐人id。 前言">
+<meta name="twitter:description" content="前言  推荐注册返佣金这个功能我想你应该不陌生吧？现在很多app都有这个功能。这个功能中，用户A推荐用户B注册，用户B又推荐了用户C注册，我们可以说C的“最终推荐人”为用户A，用户B的“最终推荐人”也为用户A，用户A没有“最终推荐人”。 一般来说，我们会通过数据库记录这种推荐关系，在数据库表中，我们可以记录两行数据，其中actor_id表示用户id，referrer_id表示推荐人id。 基于这个">
 
 
 
@@ -491,7 +491,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-21 18:36:49" itemprop="dateModified" datetime="2018-11-21T18:36:49+08:00">2018-11-21</time>
+                <time title="修改时间：2018-11-27 00:05:19" itemprop="dateModified" datetime="2018-11-27T00:05:19+08:00">2018-11-27</time>
               
             
           </span>
@@ -554,11 +554,10 @@
 
 <p>推荐注册返佣金这个功能我想你应该不陌生吧？现在很多app都有这个功能。这个功能中，用户A推荐用户B注册，用户B又推荐了用户C注册，我们可以说C的“最终推荐人”为用户A，用户B的“最终推荐人”也为用户A，用户A没有“最终推荐人”。</p>
 <p>一般来说，我们会通过数据库记录这种推荐关系，在数据库表中，我们可以记录两行数据，其中actor_id表示用户id，referrer_id表示推荐人id。</p>
-<div style="text-align: center;"><br><div class="note success"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3></div><br></div>
+<p>基于这个背景，我的问题是，<strong>给定一个用户ID，如何查找这个用户的“最终推荐人”</strong>？ 带着这个问题，我们来学习今天的内容，递归（Recursion）！</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="如何理解递归"><a href="#如何理解递归" class="headerlink" title="如何理解递归"></a>如何理解递归</h3></div><br></div>
 
-
-
-
+<p>从我自己学习数据结构和算法的经历来看，我个人觉得，有两个最难理解的知识点，一个是<strong>动态规划</strong>，另一个就是<strong>递归</strong>。</p>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -869,7 +868,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">2.</span> <span class="nav-text">前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何理解递归"><span class="nav-number">2.</span> <span class="nav-text">如何理解递归</span></a></li></ol></div>
             
 
           </div>
