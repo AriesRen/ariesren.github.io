@@ -158,18 +158,18 @@
 
 
 
-  <meta name="description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
-<meta name="keywords" content="算法,安全,开发,博客,Java,Python,Vue,Angular,前端,Material">
+  <meta name="description" content="一、数据库的拆分当数据库的数据量非常大时，水平拆分和垂直拆分是两种常见的降低数据库大小，提升性能的方法。其实在大多数分布式场景中，水平拆分和垂直拆分也通常是两种降低耦合，提升性能的架构设计或者业务拆分方法。 假设我们在数据库中有用户表1234567891011create table user(	id bigint,	name varchar(50),	password varchar(32),">
+<meta name="keywords" content="分布式,数据库拆分,大数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库拆分">
 <meta property="og:url" content="https://www.renhj.org/posts/2018-11-26-数据库拆分.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
+<meta property="og:description" content="一、数据库的拆分当数据库的数据量非常大时，水平拆分和垂直拆分是两种常见的降低数据库大小，提升性能的方法。其实在大多数分布式场景中，水平拆分和垂直拆分也通常是两种降低耦合，提升性能的架构设计或者业务拆分方法。 假设我们在数据库中有用户表1234567891011create table user(	id bigint,	name varchar(50),	password varchar(32),">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T09:30:10.135Z">
+<meta property="og:updated_time" content="2018-11-28T02:52:39.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库拆分">
-<meta name="twitter:description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
+<meta name="twitter:description" content="一、数据库的拆分当数据库的数据量非常大时，水平拆分和垂直拆分是两种常见的降低数据库大小，提升性能的方法。其实在大多数分布式场景中，水平拆分和垂直拆分也通常是两种降低耦合，提升性能的架构设计或者业务拆分方法。 假设我们在数据库中有用户表1234567891011create table user(	id bigint,	name varchar(50),	password varchar(32),">
 
 
 
@@ -478,8 +478,42 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-28 10:52:39" itemprop="dateModified" datetime="2018-11-28T10:52:39+08:00">2018-11-28</time>
+              
+            
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/架构/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -516,7 +550,21 @@
       
 
       
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <h3 id="一、数据库的拆分"><a href="#一、数据库的拆分" class="headerlink" title="一、数据库的拆分"></a>一、数据库的拆分</h3><p>当数据库的数据量非常大时，<strong>水平拆分</strong>和<strong>垂直拆分</strong>是两种常见的降低数据库大小，提升性能的方法。其实在大多数分布式场景中，水平拆分和垂直拆分也通常是两种降低耦合，提升性能的架构设计或者业务拆分方法。</p>
+<p>假设我们在数据库中有用户表<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">user</span>(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">bigint</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>),</span><br><span class="line">	<span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">32</span>),</span><br><span class="line">	age <span class="built_in">int</span>,</span><br><span class="line">	sex tinyint,</span><br><span class="line">	email <span class="built_in">varchar</span>(<span class="number">32</span>),</span><br><span class="line">	<span class="keyword">sign</span> <span class="built_in">varchar</span>(<span class="number">64</span>),</span><br><span class="line">	intro <span class="built_in">varchar</span>(<span class="number">256</span>)</span><br><span class="line">	...</span><br><span class="line">)<span class="keyword">engine</span>=<span class="keyword">innodb</span> <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure></p>
+<p><strong>水平拆分</strong>是指，以某个字段（如ID）为依据，按照一定规则（例如hash、取模），将一个库（表）上的数据拆分到多个库（表）上，以降低单库（表）的大小，水平切分后，各个库(表)的特点是：<br>    （1）每个库（表）的结构都一样<br>    （2）每个库（表）的数据不一样，没有交集<br>    （3）所有库（表）的并集是全量数据</p>
+<p><strong>垂直拆分</strong>是将一个属性较多，一行数据较大的表，将不同的属性拆分到不同的表中，以降低单库（表）的大小，达到提升性能的目的的方法。垂直拆分后，各个库（表）的特点是：<br>    （1）每个库（表）的结构都不一样<br>    （2）一般来说每个库（表）的属性至少有一列交集，一般是主键<br>    （3）所有库（表）的数据并集是全量数据</p>
+<p>以上文的用户表为例，如果要垂直拆分，可能拆分的结果会是这样的：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> user_base(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">bigint</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>),</span><br><span class="line">	<span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">32</span>),</span><br><span class="line">	age <span class="built_in">int</span>,</span><br><span class="line">	sex tinyint,</span><br><span class="line">	email <span class="built_in">varchar</span>(<span class="number">32</span>),</span><br><span class="line">	...</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> user_ext(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">bigint</span>,</span><br><span class="line">	<span class="keyword">sign</span> <span class="built_in">varchar</span>(<span class="number">64</span>),</span><br><span class="line">	intro <span class="built_in">varchar</span>(<span class="number">256</span>),</span><br><span class="line">	...</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>从结果上来看，水平拆分实际上是将数据进行了拆分存储，垂直拆分是将元数据或者字段以及数据进行拆分存储。</p>
+<h3 id="二、垂直拆分的依据是什么"><a href="#二、垂直拆分的依据是什么" class="headerlink" title="二、垂直拆分的依据是什么"></a>二、垂直拆分的依据是什么</h3><p>那垂直拆分的依据又是什么呢？当一个表属性很多时，如何来进行垂直拆分呢。通常情况下，我们会按照以下几点进行数据的拆分：<br>（1）将长度较短、访问频率高的属性尽量放在一个表里，这个表暂且称为主表<br>（2）将字段较长、访问频率较低的属性尽量放在一个表里，这个表暂且称为扩展表<br>（3）如何1和2都满足，还可以考虑第三点，将经常一起访问的属性，也放在一个表里</p>
+<p>优先考虑1、2，第3点不是必须的，如果实在属性过多，主表和扩展表都可以有多个。</p>
+<p>一般来说，数据量并发量较大时，数据库的上层都会有一个服务层，需要注意的是，<strong>当应用需要同时访问主表和扩展表中的数据时，服务层不要使用join来连表查询，而是应该分两次进行查询。</strong></p>
+<p>原因是，在大数据、高并发的互联网场景下，一般来说，吞吐量和拓展性是主要矛盾。<br>（1）join更消耗数据库性能<br>（2）join或让base表和ext表耦合在一起（必须在一个数据库实例上），不利于数据量大时拆分到不同的数据库实例上，毕竟减少数据量，提升性能才是垂直拆分的初衷。</p>
+<h3 id="三、为什么要这样拆分"><a href="#三、为什么要这样拆分" class="headerlink" title="三、为什么要这样拆分"></a>三、为什么要这样拆分</h3><p>为什么将字段段、访问频率高的属性放到一个表里？为什么垂直拆分可以提升性能？因为：<br>（1）数据库有自己的内存buffer，会将磁盘上的数据load到内存buffer里<br>（2）内存buffer缓存数据是以row为单位的<br>（3）在内存有限的情况下，在数据库的buffer里缓存短row，就能缓存更多数据<br>（4）在数据库内存buffer里缓存访问频率高的row，就能提升缓存命中率，减少磁盘IO</p>
+<p>还是以上面的用户表为例，假如数据库的缓存buffer有1G，未拆分的user表一行数据的大小为1k，那么只能缓存100w行数据，如果拆分成user_base和user_ext之后：<br>（1）user_base访问频率高，一行大小只有0.1k，那内存buffer就可以近乎缓存1000w行user_base数据<br>（2）user_ext访问频率低，一行大小0.9k<br>拆分后缓存就能更多命中记录，磁盘访问概率大大降低，数据库访问的时延会大大降低，吞吐量也就会相应增加。</p>
+<h3 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h3><p>1、水平拆分和垂直拆分都是降低数据量大小，提升数据库性能的常见手段<br>2、流量大、数据量大时，不要通过join来获取主表和扩展表的属性<br>3、数据库的拆分依据，尽量把长度较短、访问频率较高的属性放在主表中</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
@@ -542,6 +590,22 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a class="btn" href="/tags/分布式/" rel="tag">
+             <i class="fa fa-tag"></i> 分布式
+            </a>
+          
+            <a class="btn" href="/tags/数据库拆分/" rel="tag">
+             <i class="fa fa-tag"></i> 数据库拆分
+            </a>
+          
+            <a class="btn" href="/tags/大数据/" rel="tag">
+             <i class="fa fa-tag"></i> 大数据
+            </a>
+          
+        </div>
       
 
       
@@ -605,8 +669,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -648,7 +721,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -717,7 +792,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">28</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -791,6 +872,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、数据库的拆分"><span class="nav-number">1.</span> <span class="nav-text">一、数据库的拆分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、垂直拆分的依据是什么"><span class="nav-number">2.</span> <span class="nav-text">二、垂直拆分的依据是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、为什么要这样拆分"><span class="nav-number">3.</span> <span class="nav-text">三、为什么要这样拆分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、总结"><span class="nav-number">4.</span> <span class="nav-text">四、总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
