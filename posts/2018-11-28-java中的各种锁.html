@@ -158,24 +158,25 @@
 
 
 
-  <meta name="description" content="我不生产知识，我只是知识的搬运工。">
-<meta name="keywords" content="算法,安全,开发,博客,Java,Python,Vue,Angular,前端,Material">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aries&#39; blog">
-<meta property="og:url" content="https://www.renhj.org/archives/2018/09/page/2/index.html">
+  <meta name="description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
+<meta name="keywords" content="java,锁,CAS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java中的各种锁">
+<meta property="og:url" content="https://www.renhj.org/posts/2018-11-28-java中的各种锁.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="我不生产知识，我只是知识的搬运工。">
+<meta property="og:description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-28T08:20:30.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aries&#39; blog">
-<meta name="twitter:description" content="我不生产知识，我只是知识的搬运工。">
+<meta name="twitter:title" content="java中的各种锁">
+<meta name="twitter:description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.renhj.org/archives/2018/09/page/2/"/>
+  <link rel="canonical" href="https://www.renhj.org/posts/2018-11-28-java中的各种锁.html"/>
 
 
 
@@ -185,7 +186,7 @@
   };
 </script>
 
-  <title>归档 | Aries' blog</title>
+  <title>java中的各种锁 | Aries' blog</title>
   
 
 
@@ -242,7 +243,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -323,7 +324,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
@@ -403,193 +404,218 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.renhj.org/posts/2018-11-28-java中的各种锁.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无名万物">
+      <meta itemprop="description" content="我不生产知识，我只是知识的搬运工。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aries' blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h2 class="post-title" itemprop="name headline">java中的各种锁
+              
+            
+          </h2>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-28 16:17:48 / 修改时间：16:20:30" itemprop="dateCreated datePublished" datetime="2018-11-28T16:17:48+08:00">2018-11-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 27 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/posts/2018-09-08-算法-复杂度分析.html" itemprop="url">
-              
-                <span itemprop="name">算法-复杂度分析</span>
-              
-            </a>
-        
-      </h3>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-08T00:18:36+08:00"
-              content="2018-09-08" >
-          09-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/posts/2018-09-07-hexo-安装及配置.html" itemprop="url">
-              
-                <span itemprop="name">hexo-安装及配置</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-07T18:39:40+08:00"
-              content="2018-09-07" >
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/posts/2018-09-06-用Markdown来写文章.html" itemprop="url">
-              
-                <span itemprop="name">用Markdown来写文章</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-06T18:39:40+08:00"
-              content="2018-09-06" >
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
+        <p><br><br><br><br><br></p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 信息流广告 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      
     </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a class="btn" href="/tags/java/" rel="tag">
+             <i class="fa fa-tag"></i> java
+            </a>
+          
+            <a class="btn" href="/tags/锁/" rel="tag">
+             <i class="fa fa-tag"></i> 锁
+            </a>
+          
+            <a class="btn" href="/tags/CAS/" rel="tag">
+             <i class="fa fa-tag"></i> CAS
+            </a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2018-11-26-数据库拆分.html" rel="next" title="数据库拆分">
+                <i class="fa fa-chevron-left"></i> 数据库拆分
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2018/09/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/2018/09/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -984,6 +1010,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
 
   
 
