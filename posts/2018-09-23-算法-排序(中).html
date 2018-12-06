@@ -167,7 +167,7 @@
 <meta property="og:description" content="前言  上一节讲到冒泡排序、插入排序、选择排序这三种排序算法，他们的时间复杂度都是$O(n^2)$，比较高，适合小规模的排序。今天讲两种时间复杂度为$O(nlogN)$的排序算法，归并排序和快速排序。这两种算法适合大规模的数据排序，比上一节的三种算法更常用。 归并排序和快速排序都用到了分治思想，非常巧妙，我们可以借鉴这个思想，来解决非排序的问题，比如：如何在O(n)时间复杂度内查找一个无序数组中的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.renhj.org/posts/2018-09-23-算法-排序(中)/归并排序原理图.jpg">
-<meta property="og:updated_time" content="2018-12-06T09:47:07.053Z">
+<meta property="og:updated_time" content="2018-12-06T10:33:32.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-排序(中)">
 <meta name="twitter:description" content="前言  上一节讲到冒泡排序、插入排序、选择排序这三种排序算法，他们的时间复杂度都是$O(n^2)$，比较高，适合小规模的排序。今天讲两种时间复杂度为$O(nlogN)$的排序算法，归并排序和快速排序。这两种算法适合大规模的数据排序，比上一节的三种算法更常用。 归并排序和快速排序都用到了分治思想，非常巧妙，我们可以借鉴这个思想，来解决非排序的问题，比如：如何在O(n)时间复杂度内查找一个无序数组中的">
@@ -485,7 +485,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-06 17:47:07" itemprop="dateModified" datetime="2018-12-06T17:47:07+08:00">2018-12-06</time>
+                <time title="修改时间：2018-12-06 18:33:32" itemprop="dateModified" datetime="2018-12-06T18:33:32+08:00">2018-12-06</time>
               
             
           </span>
@@ -605,10 +605,21 @@
 <p>数组的插入操作还记得吗？在数组某个位置插入元素，需要搬移数据，非常耗时。当时我们也讲了一种技巧，就是交换，在O（1）时间复杂度内完成插入操作。我们也借助这个思想，只需要将 A[i] 和 A[j] 交换，就可以在O（1）时间复杂度内将 A[j] 放到小标 i 的位置。</p>
 <p>因为分区的操作涉及交换操作，如果数组中出现两个相同的元素，比如序列6,8,7,6,3,5,9,4，在经过第一次分区之后，两个6的相对位置就会发现变化。所以快速排序并不是一个稳定的排序算法。</p>
 <p>到此，快速排序的原理你应该掌握了。现在，我们来看另一个问题：快速排序和归并排序都是用的分治思想，递推公式和递归代码也非常相似，那它们的区别到底在哪里呢？</p>
+<p>可以发现，归并排序的处理过程是由下到上的，先处理子问题，然后在合并。而快排正好相反，他的处理过程是由上到下的，先分区，然后处理子问题。归并排序虽然是稳定的，时间复杂度为$O(n*log_{2}n)$的排序算法，但是它是非原地排序算法。我们上面讲过，归并排序之所以不是原地排序算法，是因为合并函数无法在原地执行。而快排通过设计巧妙的分区函数，可以实现原地排序，解决了归并排序占用太多内存空间的问题。</p>
 <div style="text-align: center;"><br><div class="note success"><h3 id="快速排序的性能分析"><a href="#快速排序的性能分析" class="headerlink" title="快速排序的性能分析"></a>快速排序的性能分析</h3></div><br></div>
 
+<p>现在我们来分析一下快速排序的性能。上面在讲解快排原理的时候，已经分析了快速排序的稳定性和空间复杂度。快排是一种原地、不稳定的排序算法，现在我们来分析一下快排的时间复杂度。</p>
+<p>快排也是用递归实现的，对于递归代码的时间复杂度，我前面总结的公式，这里也还是适用的。如果每次分区操作，都能正好把数组分成大小接近相等的两个小区间，那块拍的时间复杂度递推求解公式跟归并是一样的。所以快排的时间复杂度也是$O(n*log_{2}n)$。</p>
+<p>$$<br>\begin{cases} \\<br>\ T(1) = C; &amp; n=1 \\[2ex]<br>\ T(n) = 2*T(\frac{n}{2}) + n; &amp;  n&gt;1<br>\end{cases}<br>$$</p>
+<p>但是公式成立的前提是我们每次分区操作，选择的pivot都很合适，正好是将大区间对等一份为二，但这种情况是很难实现的。</p>
+<p>我举一个极端的例子，加入数组中的数据原来就已经是有序的了，比如1,3,5,6,8，如果我们每次选择最后一个元素作为pivot，那每次分区得到的两个区间都是不对等的。我们需要进行大约n次分区操作，才能完成快排的整个过程，这种情况下，快排的时间复杂度就从$O(n*log_{2}n)$退化成了$O(n^2)$。</p>
+<p>我们刚刚讲了两个极端情况下的时间复杂度，一个是分区极其均衡，一个是分区极其不均衡。他们分别对应到快排的最好时间复杂度和最坏情况时间复杂度。那快排的平均时间复杂度是多少呢？</p>
+<p>实际上，递归的时间复杂度的求解除了递推公式之外，还有递归树，在树那一节再讲，这里暂且不说，这里直接给出结论：快排的平均复杂度也是$O(n*log_{2}n)$，只有在极端情况下才会退化为$O(n^2)$。而且我们也有办法将这个概率降到很低，如何来做，我们后面排序优化再讲。</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="解答开篇"><a href="#解答开篇" class="headerlink" title="解答开篇"></a>解答开篇</h3></div><br></div>
 
-
+<p>快排的核心思想是分治和分区。我们可以利用快排的思想，来解答开篇的问题：O(n)的时间复杂度内求解无序数组中第K大元素，比如4,2,5,12,3这样一组数据，第三大元素就是4。</p>
+<p>我们选择数组区间A[p…r]最后一个元素A[n-1]作为pivot，对数组A[0…n-1]进行原地分区，这样数组就分成了三部分，A[0…p-1]、A[p]、A[p+1…n-1]。</p>
+<p>如果p+1=K，那么A[p]就是要求解的元素，如果K&gt;p+1，说明第K大元素出现在A[p+1…n-1]区间内，我们再按照上面的思路在A[p+1…n-1]内查找。同理，如果K&lt; p+1，那我们就在A[0…p-1]区间内查找。</p>
 <p><br><br><br><br><br></p>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->
@@ -950,7 +961,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序的原理"><span class="nav-number">2.</span> <span class="nav-text">归并排序的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序的性能分析"><span class="nav-number">3.</span> <span class="nav-text">归并排序的性能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的原理"><span class="nav-number">4.</span> <span class="nav-text">快速排序的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的性能分析"><span class="nav-number">5.</span> <span class="nav-text">快速排序的性能分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序的原理"><span class="nav-number">2.</span> <span class="nav-text">归并排序的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序的性能分析"><span class="nav-number">3.</span> <span class="nav-text">归并排序的性能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的原理"><span class="nav-number">4.</span> <span class="nav-text">快速排序的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的性能分析"><span class="nav-number">5.</span> <span class="nav-text">快速排序的性能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答开篇"><span class="nav-number">6.</span> <span class="nav-text">解答开篇</span></a></li></ol></div>
             
 
           </div>
