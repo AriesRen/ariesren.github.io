@@ -167,7 +167,7 @@
 <meta property="og:description" content="前言  上一节讲到冒泡排序、插入排序、选择排序这三种排序算法，他们的时间复杂度都是$O(n^2)$，比较高，适合小规模的排序。今天讲两种时间复杂度为$O(nlogN)$的排序算法，归并排序和快速排序。这两种算法适合大规模的数据排序，比上一节的三种算法更常用。 归并排序和快速排序都用到了分治思想，非常巧妙，我们可以借鉴这个思想，来解决非排序的问题，比如：如何在O(n)时间复杂度内查找一个无序数组中的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.renhj.org/posts/2018-09-23-算法-排序(中)/归并排序原理图.jpg">
-<meta property="og:updated_time" content="2018-12-05T08:45:51.612Z">
+<meta property="og:updated_time" content="2018-12-06T09:47:07.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-排序(中)">
 <meta name="twitter:description" content="前言  上一节讲到冒泡排序、插入排序、选择排序这三种排序算法，他们的时间复杂度都是$O(n^2)$，比较高，适合小规模的排序。今天讲两种时间复杂度为$O(nlogN)$的排序算法，归并排序和快速排序。这两种算法适合大规模的数据排序，比上一节的三种算法更常用。 归并排序和快速排序都用到了分治思想，非常巧妙，我们可以借鉴这个思想，来解决非排序的问题，比如：如何在O(n)时间复杂度内查找一个无序数组中的">
@@ -485,7 +485,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-05 16:45:51" itemprop="dateModified" datetime="2018-12-05T16:45:51+08:00">2018-12-05</time>
+                <time title="修改时间：2018-12-06 17:47:07" itemprop="dateModified" datetime="2018-12-06T17:47:07+08:00">2018-12-06</time>
               
             
           </span>
@@ -572,6 +572,44 @@
 <p>在合并的过程中，如果A[p…q]和A[q+1…r]之间有值相同的元素，我们可以像上面代码中那样，先把A[p…q]中的元素放入临时数组temp中，这样就保证了值相同的元素，合并前后顺序并不会改变。所以，归并排序是一个稳定的排序算法。</p>
 <p><strong>第二、归并排序的时间复杂度是多少？</strong></p>
 <p>归并排序涉及递归，时间复杂度的分析稍微有点复杂，我们正好借此机会来学习一下，如果很细递归代码的时间复杂度。</p>
+<p>在递归那一节我们讲过，递归适用场景是，一个问题a可以分解为多个子问题b、c，那求解问题a就可以分解为求解子问题b、c。子问题b、c解决之后，我们再把b、c的结果合并成a的结果。</p>
+<p>我们定义求解问题a的时间为T(a)，求解问题b、c的时间分别是T(b)、T(c),那我们就可以得到这样的递推公式：$T(a) = T(b) + T(c) + K$。其中K是将两个子问题b、c的结果合并所需的时间。</p>
+<p>从上面的分析，我们得出一个重要的结论：<strong>不仅递归求解的问题可以写成递推公式，递推代码的时间复杂度也可以写成递推公式</strong>。</p>
+<p>套用这个公式，我们来分析一下归并排序的时间复杂度。</p>
+<p>我们假设对n个元素进行归并排序需要的时间是T(n)，那分解成两个子数组排序的时间都是T(n/2)。我们知道，merge函数合并两个有序子数组的时间复杂度是O(n)。所以套用前面的公式，归并排序的时间复杂度计算公式是：<br>$$<br>\begin{cases}<br>T(1) = C; &amp; n=1 \\[2ex]<br>T(n) = 2*T(\frac{n}{2}) + n; &amp;  n&gt;1<br>\end{cases}<br>$$</p>
+<p>通过这个公式，如何来求解T(n)呢？还不够直观，我们再来进一步分解一下计算过程</p>
+<p>$$<br>\begin{align*}<br>T(n) \ &amp;= \ 2*T(\frac{n}{2}) \ + \ n \\[2ex]<br>&amp;= 2*(2 * T(\frac{n}{4}) + \frac{n}{2}) \  + \ n \qquad = 4*T(\frac{n}{4}) + 2*n \\[2ex]<br>&amp;= 4*(2* T(\frac{n}{8}) + \frac{n}{4}) \  + \ 2 * n \ \; = 8*T(\frac{n}{8}) + 3*n \\[2ex]<br>&amp;= 8*(2* T(\frac{n}{16}) + \frac{n}{8}) \  + \ 3 * n \ \; = 16*T(\frac{n}{16}) + 4*n \\[2ex]<br>&amp;= …… \\[2ex]<br>&amp;= 2^{k} * T(\frac{n}{2^{k}}) + k * n<br>\end{align*}<br>$$</p>
+<p>这样一步步推导，我们可以得到$T(n) \ = \ 2^{k} * T(\frac{n}{2^{k}}) + k * n $。当$T(\frac{n}{2^{k}})=T(1)$时，也就是$\frac{n}{2^{k}} = 1$时，我们得到$k = log_{2}n$。我们将k值带入上面的公式得到$T(n) \ = \ Cn + n*log_{2}n$。如果我们用大O表示法来表示的话，$T(n)$就等于$O(n*log_{2}n)$。所以归并排序的时间复杂度是$O(n*log_{2}n)$。</p>
+<p>从我们的原理分析和代码可以看出，归并排序的执行效率与要排序的原始数组的有序程度无关，所以其时间复杂度是非常稳定的，不管最好、最坏、平均情况时间复杂度都为$O(n*log_{2}n)$。</p>
+<p><strong>第三、归并排序是不是原地排序算法呢？</strong></p>
+<p>归并排序的时间复杂度在任何情况下都是$O(n*log_{2}n)$，看起来非常优秀。待会你会发现，即使是快速排序，最坏情况下时间复杂度也是$O(n^2)$，但是归并排序并不像快排那样，应用广泛，这是为什么？因为它有一个指明的弱点，那就是归并排序并不是一个原地排序算法 。</p>
+<p>这是因为归并排序的合并函数，在合并两个有数组为一个有序数组时，需要借助额外的临时存储空间。这一点很好理解，那归并排序的空间复杂度到底是多少呢？是O(n),还是$O(n*log_{2}n)$，该如何分析呢？</p>
+<p>如果我们继续按照分析递归时间复杂度的方法，通过递推公式来求解，那整个归并排序的空间复杂度就是$O(n*log_{2}n)$。不过类似分析时间复杂度那样来分析空间复杂度，这个思路对吗？</p>
+<p>实际上，递归代码的空间复杂度并不像时间复杂度那样累加。我们刚刚忘了最重要的一点，那就是，尽管每次合并都需要申请额外的临时空间，但是在合并完成之后，临时空间就会被释放。在任意时刻，CPU只会有一个函数在执行，也就是只有一块临时空间在使用，临时空间内存大小最大不会超过n，所以归并排序的空间复杂度是O(n)。</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="快速排序的原理"><a href="#快速排序的原理" class="headerlink" title="快速排序的原理"></a>快速排序的原理</h3></div><br></div>
+
+<p>我们再来看快速排序的原理，我们习惯性的把它简称为“快排”，快排利用的也是分治思想。乍看起来，他有点像归并排序，但其实思路完全不一样，待会再看两者的区别。现在我们先来看看快排的核心思想。</p>
+<p>快排的思想是这样的，如果要排序数组中从下标p-r之间的一组数据，我们选择p到r之间的任意一个数作为pivot分区点。</p>
+<p>第一次遍历，我们将p到r之间的数据分为两部分。将小于pivot的放到左边，将大于pivot的放到右边。讲过这一步之后，p-r之间的数据就被分成了三部分，前面p到q-1之间的数据都是小于pivot的，中间是pivot，后面q+1到r之间的数据都是大于pivot的。</p>
+<p>根据分治、递归的思想，我们可以用递归排序p到q-1之间的数据和下边在q+1到r之间的数据，知道区间缩小为1，就说明所有的数据都有序了。</p>
+<p>如果我们用递推公式来将上面的过程写出来的话，就是这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 递推公式</span><br><span class="line">quick_sort(p...r) = quick_sort(p...q-<span class="number">1</span>)+quick_sort(q+<span class="number">1</span>...r)</span><br><span class="line"></span><br><span class="line"># 终止条件</span><br><span class="line">p&gt;=r</span><br></pre></td></tr></table></figure>
+<p>我将递推公式转换为递归代码，你可以根据代码将其翻译为你熟悉的任何语言的代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">    quickSort(arr, <span class="number">0</span> , n-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (left&gt;=right) <span class="keyword">return</span>; </span><br><span class="line">    <span class="keyword">int</span> mid = partation(arr, left, right);</span><br><span class="line">    quickSort(arr, left, mid-<span class="number">1</span>);</span><br><span class="line">    quickSort(arr, mid+<span class="number">1</span>, right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查找中间位置</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partation</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> base = arr[left];</span><br><span class="line">    <span class="keyword">int</span> i = left, j = right;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;j &amp;&amp; arr[j] &gt;= base) j--;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;j &amp;&amp; arr[i] &lt;= base) i++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i&lt;j)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">            arr[i] = arr[j];</span><br><span class="line">            arr[j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    arr[left] = arr[i];</span><br><span class="line">    arr[i] = base;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>归并排序有一个merge合并函数，快排这里也有一个partation分区函数。partation分区函数实际上我们前面已经讲过了，就是随机选择一个元素作为pivot，然后对A[p…r]分区，函数返回pivot的小标。</p>
+<p>如果我们不考虑空间消耗的话，partation分区函数可以写的非常简单。我们申请两个临时数组X和Y，遍历A[p…r]，将小于pivot的元素都拷贝到临时数组X中，将大于pivot的元素都拷贝到临时数组Y中，最后再讲数组X和数组Y中的数据顺序拷贝到数组A[p…r]中。</p>
+<p>不过如果按这种思路实现的话，partation函数就需要很多额外的内存空间，所以快排也就不是原地排序算法了。如果我们希望快排是原地排序算法，那它的空间复杂度都是O(1)，那partation分区函数就不能占用太多的内存空间，我们就需要在A[p…r]原地完成分区操作。</p>
+<p>原地分区函数的实现思路非常巧妙，我下面用伪代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">partation(a,p,r)&#123;</span><br><span class="line">    pivot := A[r]</span><br><span class="line">    i := p;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> j:=p to r-<span class="number">1</span> <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> A[j] &lt; pivot&#123;</span><br><span class="line">            swap A[i] with A[j]</span><br><span class="line">            i := i+<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap A[i] with A[r]</span><br><span class="line">    <span class="keyword">return</span> i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的处理有点类似于选择排序。我们通过游标i把A[p…r-1]分成了两部分，A[p…i-1]的元素都是小于pivot的，我们暂且叫它“已处理区间”，A[i…r-1] 是“未处理区间”。我们每次从未处理区间A[i…r-1]中取一个元素A[j]，与pivot对比，如果小于pivot，则将其加入到已处理区间的尾部，也就是 A[i] 的位置。</p>
+<p>数组的插入操作还记得吗？在数组某个位置插入元素，需要搬移数据，非常耗时。当时我们也讲了一种技巧，就是交换，在O（1）时间复杂度内完成插入操作。我们也借助这个思想，只需要将 A[i] 和 A[j] 交换，就可以在O（1）时间复杂度内将 A[j] 放到小标 i 的位置。</p>
+<p>因为分区的操作涉及交换操作，如果数组中出现两个相同的元素，比如序列6,8,7,6,3,5,9,4，在经过第一次分区之后，两个6的相对位置就会发现变化。所以快速排序并不是一个稳定的排序算法。</p>
+<p>到此，快速排序的原理你应该掌握了。现在，我们来看另一个问题：快速排序和归并排序都是用的分治思想，递推公式和递归代码也非常相似，那它们的区别到底在哪里呢？</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="快速排序的性能分析"><a href="#快速排序的性能分析" class="headerlink" title="快速排序的性能分析"></a>快速排序的性能分析</h3></div><br></div>
+
+
+
+<p><br><br><br><br><br></p>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -828,8 +866,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
@@ -914,7 +950,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序的原理"><span class="nav-number">2.</span> <span class="nav-text">归并排序的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序的性能分析"><span class="nav-number">3.</span> <span class="nav-text">归并排序的性能分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序的原理"><span class="nav-number">2.</span> <span class="nav-text">归并排序的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序的性能分析"><span class="nav-number">3.</span> <span class="nav-text">归并排序的性能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的原理"><span class="nav-number">4.</span> <span class="nav-text">快速排序的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序的性能分析"><span class="nav-number">5.</span> <span class="nav-text">快速排序的性能分析</span></a></li></ol></div>
             
 
           </div>
