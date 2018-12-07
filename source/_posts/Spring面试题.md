@@ -7,7 +7,7 @@ categories:
 
 #### 1、consul的可靠性
 
-#### 2、spring的原理，AOP/IOC原理
+#### 2、spring的原理，AOP/IOC原理，使用场景
 
 #### 3、spring bean生命周期
 
@@ -39,6 +39,13 @@ IOC解决了对象之间的依赖问题，把所有的Bean的依赖关系通过�
 
 #### 10、Spring MVC的架构/工作流程图
 {% asset_img springmvc流程图.jpg %}
+
+#### 11、spring bean的作用域和生命周期
+
+#### 12、spring boot比psinrg做了哪些改进？spring5比spring4做了哪些改进？
+
+#### 13、如何自定义一个spirng boot starter
+
 
 
 
