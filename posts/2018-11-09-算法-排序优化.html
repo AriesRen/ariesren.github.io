@@ -158,18 +158,18 @@
 
 
 
-  <meta name="description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
-<meta name="keywords" content="算法,安全,开发,博客,Java,Python,Vue,Angular,前端,Material">
+  <meta name="description" content="前言  几乎所有的编程语言中都会提供排序函数，比如C语言中qsort()，C++ STL中的sort()、stable_sort()，还有java中Collections.sort()。在平时开发中，我们都是直接使用这些现成的函数来实现业务逻辑中的排序功能。那你知道这些排序函数是如何实现的吗？底层都利用了那些排序算法？ 基于这些问题，今天我们就来看看排序这部分的最后一块内容:如何实现一个通用的、高">
+<meta name="keywords" content="算法,排序,排序优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-排序优化">
 <meta property="og:url" content="https://www.renhj.org/posts/2018-11-09-算法-排序优化.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
+<meta property="og:description" content="前言  几乎所有的编程语言中都会提供排序函数，比如C语言中qsort()，C++ STL中的sort()、stable_sort()，还有java中Collections.sort()。在平时开发中，我们都是直接使用这些现成的函数来实现业务逻辑中的排序功能。那你知道这些排序函数是如何实现的吗？底层都利用了那些排序算法？ 基于这些问题，今天我们就来看看排序这部分的最后一块内容:如何实现一个通用的、高">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-29T09:59:50.760Z">
+<meta property="og:updated_time" content="2018-12-17T10:56:16.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-排序优化">
-<meta name="twitter:description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
+<meta name="twitter:description" content="前言  几乎所有的编程语言中都会提供排序函数，比如C语言中qsort()，C++ STL中的sort()、stable_sort()，还有java中Collections.sort()。在平时开发中，我们都是直接使用这些现成的函数来实现业务逻辑中的排序功能。那你知道这些排序函数是如何实现的吗？底层都利用了那些排序算法？ 基于这些问题，今天我们就来看看排序这部分的最后一块内容:如何实现一个通用的、高">
 
 
 
@@ -483,11 +483,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-29 17:59:50" itemprop="dateModified" datetime="2018-11-29T17:59:50+08:00">2018-11-29</time>
+                <time title="修改时间：2018-12-17 18:56:16" itemprop="dateModified" datetime="2018-12-17T18:56:16+08:00">2018-12-17</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -524,7 +542,79 @@
       
 
       
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <div style="text-align: center;"><br><div class="note success"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3></div><br></div>
+
+<p>几乎所有的编程语言中都会提供排序函数，比如C语言中qsort()，C++ STL中的sort()、stable_sort()，还有java中Collections.sort()。在平时开发中，我们都是直接使用这些现成的函数来实现业务逻辑中的排序功能。那你知道这些排序函数是如何实现的吗？底层都利用了那些排序算法？</p>
+<p>基于这些问题，今天我们就来看看排序这部分的最后一块内容:<strong>如何实现一个通用的、高性能的排序算法？</strong></p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="如何选择合适的排序算法？"><a href="#如何选择合适的排序算法？" class="headerlink" title="如何选择合适的排序算法？"></a>如何选择合适的排序算法？</h3></div><br></div>
+
+<p>如果要实现一个通用的、高效率的排序函数，我们应该选择哪种排序算法？我们先回顾一下前面讲过的几种排序算法。</p>
+<table>
+<thead>
+<tr>
+<th>排序算法</th>
+<th>时间复杂度</th>
+<th>是否稳定排序？</th>
+<th>是否原地排序？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>冒泡排序</td>
+<td>$O(n^2)$</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>$O(n^2)$</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>$O(n^2)$</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>$O(n*logn)$</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>$O(n*logn)$</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>桶排序</td>
+<td>$O(n)$</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>计数排序</td>
+<td>$O(n+k)$</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td>$O(dn)$</td>
+<td>√</td>
+<td>×</td>
+</tr>
+</tbody>
+</table>
+<p>我们前面讲过，线性排序算法的时间复杂度比较低，适用场景比较特殊。所以如果要写一个通用排序函数，不能选择线性排序算法。</p>
+<p>如果对小规模数据进行排序，可以选择时间复杂度为$O(n^2)$的排序算法，如果对大规模数据进行排序，时间复杂度是$O(n*logn)$的的算法更加高效。所以，为了兼顾任意规模数据的排序，一般都会首选时间复杂度为$O(n*logn)$的算法来实现排序函数。</p>
+<p>时间复杂度为$O(n*logn)$的函数不止一个，我们已经讲过的有归并排序、快速排序。后面讲堆的时候我们还会讲堆排序。堆排序和快速排序都有比较多的应用，比如java语言采用堆排序实现排序函数，C语言使用排序排序实现排序函数。</p>
+<p>不知道你有没有发现，使用归并排序的情况其实并不多。我们知道，快速排序最坏情况下时间复杂度是$O(n^2)$。而归并排序可以做到平均情况、最坏情况的时间复杂度都是$O(n*logn)$，从这点看起来很诱人，那为什么它还是没能得到“宠幸”呢？</p>
+<p>还记得我们上一节将的归并排序的空间复杂度吗？归并排序并不是原地排序算法，空间复杂度是$O(n)$，所以，粗略的将，如果要排序100MB的数据，除了数据本身占用的内存之外，排序算法还要额外在占用100MB的内存空间，空间消耗就翻倍了。</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
@@ -550,6 +640,22 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a class="btn" href="/tags/算法/" rel="tag">
+             <i class="fa fa-tag"></i> 算法
+            </a>
+          
+            <a class="btn" href="/tags/排序/" rel="tag">
+             <i class="fa fa-tag"></i> 排序
+            </a>
+          
+            <a class="btn" href="/tags/排序优化/" rel="tag">
+             <i class="fa fa-tag"></i> 排序优化
+            </a>
+          
+        </div>
       
 
       
@@ -617,8 +723,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -751,7 +866,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">36</span>
+                      
+                    
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -825,6 +942,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何选择合适的排序算法？"><span class="nav-number">2.</span> <span class="nav-text">如何选择合适的排序算法？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1377,6 +1510,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
