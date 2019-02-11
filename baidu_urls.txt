@@ -1,3 +1,4 @@
+https://www.renhj.org/posts/2019-01-10-Android-APK-反编译、重打包、签名.html
 https://www.renhj.org/posts/2018-11-28-java中的各种锁.html
 https://www.renhj.org/posts/2018-11-26-数据库拆分.html
 https://www.renhj.org/posts/2018-11-26-生活-文艺到爆的句子.html
