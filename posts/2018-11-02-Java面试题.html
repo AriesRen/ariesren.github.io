@@ -166,7 +166,7 @@
 <meta property="og:site_name" content="Aries&#39; blog">
 <meta property="og:description" content="1、HashMap和HashTable区别HashMap是HashTable的轻量实现（非线程安全），他们都实现的Map接口，主要区别在于：线程安全，同步，性能  HashTable继承Dictionary，HashMap继承的是java2出现的Map接口； HashMap允许将null作为key或value，hashtable不允许； HashMap是非同步的，HashTable是同步的(syn">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-14T07:57:22.536Z">
+<meta property="og:updated_time" content="2019-02-14T08:14:41.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java面试题">
 <meta name="twitter:description" content="1、HashMap和HashTable区别HashMap是HashTable的轻量实现（非线程安全），他们都实现的Map接口，主要区别在于：线程安全，同步，性能  HashTable继承Dictionary，HashMap继承的是java2出现的Map接口； HashMap允许将null作为key或value，hashtable不允许； HashMap是非同步的，HashTable是同步的(syn">
@@ -483,7 +483,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-14 15:57:22" itemprop="dateModified" datetime="2019-02-14T15:57:22+08:00">2019-02-14</time>
+                <time title="修改时间：2019-02-14 16:14:41" itemprop="dateModified" datetime="2019-02-14T16:14:41+08:00">2019-02-14</time>
               
             
           </span>
@@ -614,8 +614,18 @@
 </table>
 <h4 id="6、查找一个数组的中位数"><a href="#6、查找一个数组的中位数" class="headerlink" title="6、查找一个数组的中位数"></a>6、查找一个数组的中位数</h4><h4 id="7、反射的机制，说说反射的用途和实现，反射是不是很慢，我们在项目中是否应该避免使用反射。"><a href="#7、反射的机制，说说反射的用途和实现，反射是不是很慢，我们在项目中是否应该避免使用反射。" class="headerlink" title="7、反射的机制，说说反射的用途和实现，反射是不是很慢，我们在项目中是否应该避免使用反射。"></a>7、反射的机制，说说反射的用途和实现，反射是不是很慢，我们在项目中是否应该避免使用反射。</h4><h4 id="8、Object类中的方法"><a href="#8、Object类中的方法" class="headerlink" title="8、Object类中的方法"></a>8、Object类中的方法</h4><h4 id="9、对象比较是否相等"><a href="#9、对象比较是否相等" class="headerlink" title="9、对象比较是否相等"></a>9、对象比较是否相等</h4><h4 id="10、toString方法的常用地方，为什么要重写该方法"><a href="#10、toString方法的常用地方，为什么要重写该方法" class="headerlink" title="10、toString方法的常用地方，为什么要重写该方法"></a>10、toString方法的常用地方，为什么要重写该方法</h4><h4 id="11、HashMap-put方法怎么判断是否是重复方法"><a href="#11、HashMap-put方法怎么判断是否是重复方法" class="headerlink" title="11、HashMap put方法怎么判断是否是重复方法"></a>11、HashMap put方法怎么判断是否是重复方法</h4><h4 id="12、Set和List的区别"><a href="#12、Set和List的区别" class="headerlink" title="12、Set和List的区别"></a>12、Set和List的区别</h4><h4 id="13、ArrayList和LinkedList的区别，List和Map的区别，-ArrayList和Vector的区别"><a href="#13、ArrayList和LinkedList的区别，List和Map的区别，-ArrayList和Vector的区别" class="headerlink" title="13、ArrayList和LinkedList的区别，List和Map的区别， ArrayList和Vector的区别"></a>13、ArrayList和LinkedList的区别，List和Map的区别， ArrayList和Vector的区别</h4><ul>
 <li>ArrayList和LinkedList区别：<ul>
-<li>ArrayList内部是基于数组实现的，</li>
-<li>LinkedList内部是基于链表实现的</li>
+<li>ArrayList内部是基于数组实现的，因此对于随机访问快，新增删除慢</li>
+<li>LinkedList内部是基于链表实现的，因此新增删除快，随机访问慢。</li>
+</ul>
+</li>
+<li>List和Map的区别：<ul>
+<li>List是存储单列数据的集合，存储的数据都是有序并且是可以重复的</li>
+<li>Map是存储双列数据的集合，通过键值对存储数据，存储的数据是无序的，Key值不能重复，value值是可以重复的。</li>
+</ul>
+</li>
+<li>ArrayList和Vector的区别：<ul>
+<li>ArrayList是不同步的，也就是不是线程安全的类</li>
+<li>Vector是同步的，线程安全</li>
 </ul>
 </li>
 </ul>
