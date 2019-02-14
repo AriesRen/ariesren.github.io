@@ -62,6 +62,10 @@ Java中通过Executors提供四种线程池：
 
 #### 13、ArrayList和LinkedList的区别，List和Map的区别， ArrayList和Vector的区别
 
+* ArrayList和LinkedList区别：
+	* ArrayList内部是基于数组实现的，
+	* LinkedList内部是基于链表实现的
+
 #### 14、TreeSet对存入的数据有什么要求吗？
 
 #### 15、HashSet是不是线程安全的
@@ -131,7 +135,7 @@ OSGI实现模块化热部署的关键是它自定义的类加载器机制的实�
 
 #### 36、NIO是什么，适用于何种场景
 
-#### 37、
+
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->

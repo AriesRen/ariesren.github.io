@@ -11,6 +11,21 @@ categories:
 
 #### 3、spring bean生命周期
 
+{% asset_img "spring bean生命周期.jpg" %}
+
+* 实例化一个Bean，也就是我们常说的new
+* 按照Spring上下文对实例化的Bean进行配置，即 IOC 注入
+* 如果这个Bean已经实现了BeanNameAware接口，会调用它实现的setBeanName(String)方法，此处传递的就是spring配置文件中Bean的ID值
+* 如果这个Bena已经实现了BeanFactoryAware接口，会调用它实现的setBeanFactory(BeanFactory)传递Spring工厂自身
+* 如果这个Bean已经实现了ApplicationContextAware接口，会调用setApplicationContext(ApplicationContext)方法，传入Spring上下文
+* 如果这个Bean关联了BenaPostProcessor接口，将会调用postProcessBeforeInitialization(Object obj, String s)方法，BeanPostPorcessor经常被用作Bean内容的更改，并且由于这个是在Bena初始化结束时调用哪个的方法，也可以被应用于内存或缓存技术。
+* 如果Bena在Spring配置文件中配置了init-method属性会自动调用其配置的初始化方法。
+* 如果这个Bean关联了BeanPostProcessor接口，将会调用postPorcessAfterInitialization(Object obj, String s)方法
+* 以上工作完成之后就可以应用这个Bean了，那这个Bean是一个Singleton的，所以一般情况下我们调用同一个ID的Bean会是在内容地址相同的实例，当然在Spring配置文件中也可以配置非Singleton
+* 当Bena不再需要时，会经过清理阶段，如果Bean实现了DisposableBena接口，会调用其实现的destroy()方法
+* 最后，如果这个Bean在Spring中配置了destroy-method属性，会自动调用其配置的销毁方法。
+
+
 #### 4、什么是依赖注入
 DI、IOC是同一个概念。依赖注入是当一个对象需要依赖另一个对象的协助时，创建、管理被依赖对象的工作由Spring来完成，而不是由调用者完成，因此称为控制反转，创建被依赖对象的实例也是由spirng容器来创建，并注入给调用者，因此称为依赖注入。
 
@@ -46,6 +61,7 @@ IOC解决了对象之间的依赖问题，把所有的Bean的依赖关系通过�
 
 #### 13、如何自定义一个spirng boot starter
 
+#### 24、Servlet的生命周期
 
 
 

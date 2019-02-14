@@ -73,6 +73,10 @@ apktool反编译后的典型目录如下：
 
 修改代码完成后，还需要重新打包以及重新签名。重新打包使用apktool编译修改过的目录即可。
 
+```shell
+apltool.bat b -o <output.apk> <input_dir>
+```
+
 ### 六、签名
 
 签名是要对发布的apk文件做标记，确保你的apk文件有唯一的身份归属认证，只有相同的签名和相同包名的文件才可以覆盖安装并保留用户信息。
@@ -81,16 +85,33 @@ apktool反编译后的典型目录如下：
 
 1、生成keystroe文件
 
-签名需要keystore文件，可以使用keytool工具生成，java环境一般都自带keytool命令。
+签名需要keystore文件，可以使用keytool工具生成，java环境一般都自带keytool命令，可以直接在命令行中进行测试。
 
-```cmd
+```shell
 keytool -genkey -alias demo.keystore -keyalg RSA -VALIDITY 40000 -keystore demo.keystore
 ```
+
+各个参数意义如下：
+-genkey 产生证书文件
+-alias 产生别名
+-keystore 制定密钥库的.keystore文件
+-keyalg 制定密钥算法 这里指定为RSA 非对称密钥算法
+-validity 证书有效天数
+
 {% asset_img 4.jpg %}
 
 2、签名apk
 
+签名工具使用jarsigner，jarsigner也存在于Java JDK中，所以如果安装好Java环境，可以直接在命令行中使用。
 
+```shell
+jarsigner -verbos -keystore <keystore密钥库位置> <待签名的APK>  <密钥库别名>
+```
+
+-verbose 制定生成详细输出
+-keystore 制定数字证书存储路径
+
+这样就完成了对APK的重签名过程，然后就可以安装使用了。如果你的手机上原来就有这个APP，则需要卸载之后重新安装，因为签名已经改变。
 
 
 
