@@ -158,19 +158,20 @@
 
 
 
-  <meta name="description" content="前言  通过IP地址来查找IP归属地的功能，不知道那有没有用过？没用过也没关系，你现在就可以打开百度，在搜索框中随便输入一个IP地址，就会看到它的归属地。      (adsbygoogle = window.adsbygoogle || []).push({});">
+  <meta name="description" content="前言  通过IP地址来查找IP归属地的功能，不知道那有没有用过？没用过也没关系，你现在就可以打开百度，在搜索框中随便输入一个IP地址，就会看到它的归属地。  这个功能并不复杂，它是通过维护一个很大的IP地址库来实现的。地址库汇总包括IP地址范围和归属地对应的关系。 当我们想要查询202.102.133.13这个IP地址的归属地时，我们就在地址库中搜索，发现这个IP地址落在[202.102.133.">
 <meta name="keywords" content="算法,二分查找">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法-二分查找(下)">
 <meta property="og:url" content="https://www.renhj.org/posts/2018-11-09-算法-二分查找-下.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="前言  通过IP地址来查找IP归属地的功能，不知道那有没有用过？没用过也没关系，你现在就可以打开百度，在搜索框中随便输入一个IP地址，就会看到它的归属地。      (adsbygoogle = window.adsbygoogle || []).push({});">
+<meta property="og:description" content="前言  通过IP地址来查找IP归属地的功能，不知道那有没有用过？没用过也没关系，你现在就可以打开百度，在搜索框中随便输入一个IP地址，就会看到它的归属地。  这个功能并不复杂，它是通过维护一个很大的IP地址库来实现的。地址库汇总包括IP地址范围和归属地对应的关系。 当我们想要查询202.102.133.13这个IP地址的归属地时，我们就在地址库中搜索，发现这个IP地址落在[202.102.133.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.renhj.org/posts/2018-11-09-算法-二分查找-下/IP地址归属地查询.jpg">
-<meta property="og:updated_time" content="2019-02-20T02:32:01.151Z">
+<meta property="og:image" content="https://www.renhj.org/posts/2018-11-09-算法-二分查找-下/有序数组.jpg">
+<meta property="og:updated_time" content="2019-02-20T10:12:42.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-二分查找(下)">
-<meta name="twitter:description" content="前言  通过IP地址来查找IP归属地的功能，不知道那有没有用过？没用过也没关系，你现在就可以打开百度，在搜索框中随便输入一个IP地址，就会看到它的归属地。      (adsbygoogle = window.adsbygoogle || []).push({});">
+<meta name="twitter:description" content="前言  通过IP地址来查找IP归属地的功能，不知道那有没有用过？没用过也没关系，你现在就可以打开百度，在搜索框中随便输入一个IP地址，就会看到它的归属地。  这个功能并不复杂，它是通过维护一个很大的IP地址库来实现的。地址库汇总包括IP地址范围和归属地对应的关系。 当我们想要查询202.102.133.13这个IP地址的归属地时，我们就在地址库中搜索，发现这个IP地址落在[202.102.133.">
 <meta name="twitter:image" content="https://www.renhj.org/posts/2018-11-09-算法-二分查找-下/IP地址归属地查询.jpg">
 
 
@@ -485,7 +486,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-20 10:32:01" itemprop="dateModified" datetime="2019-02-20T10:32:01+08:00">2019-02-20</time>
+                <time title="修改时间：2019-02-20 18:12:42" itemprop="dateModified" datetime="2019-02-20T18:12:42+08:00">2019-02-20</time>
               
             
           </span>
@@ -548,6 +549,34 @@
 
 <p>通过IP地址来查找IP归属地的功能，不知道那有没有用过？没用过也没关系，你现在就可以打开百度，在搜索框中随便输入一个IP地址，就会看到它的归属地。</p>
 <img src="/posts/2018-11-09-算法-二分查找-下/IP地址归属地查询.jpg">
+<p>这个功能并不复杂，它是通过维护一个很大的IP地址库来实现的。地址库汇总包括IP地址范围和归属地对应的关系。</p>
+<p>当我们想要查询202.102.133.13这个IP地址的归属地时，我们就在地址库中搜索，发现这个IP地址落在[202.102.133.0, 202.102.133.255]这个地址范围内，那我们就可以将这个IP地址范围对应的归属地”山东东营市”显示给用户了。</p>
+<p><strong>现在我的问题是，在庞大的地址库中逐一对比IP地址所在的区间，是非常耗时的。假设我们有12万条这样的IP区间与归属地的对应关系，如何快速定位出一个IP地址的归属地呢？</strong></p>
+<p>是不是觉得比较难？不要紧，等学完今天的内容，你就会发现这个问题其实很简单。</p>
+<p>上一节我讲了二分查找的原理，并且介绍了最简单的一种二分查找的代码实现。今天我们来讲几种二分查找的变形问题。</p>
+<p>不知道你有没有听过这样一个说法：”十个二分九个错”。二分查找虽然原理极其简单，但是想要写出没有bug的二分查找并不容易。</p>
+<p>康纳德·克努特(Donald E.Knuth) 在《计算机程序设计艺术》的第3卷《排序与查找》中说到”尽管第一个二分查找算法于1946年出现，然后第一个完全正确的二分查找算法实现直到1962年才出现”。</p>
+<p>你可能会说，我们上一节学的二分查找的代码实现并不难写啊。那是因为上一节讲的只是二分查找的一种最简单的情况，在不存在重复元素的有序数组中，查找给定值的元素。最简单的二分查找写起来确实不难，但是，二分查找的变形问题就没有那么好写了。</p>
+<p>二分查找的变形问题很多，我只选择几个典型的来讲解，其它你可以借助我今天讲的思路来分析。</p>
+<p>四种常见的二分查找的变形问题：</p>
+<ul>
+<li>查找第一个值等于给定值的元素</li>
+<li>查找最后一个值等于给定值的元素</li>
+<li>查找第一个大于等于给定值的元素</li>
+<li>查找最后一个小于给定值的元素</li>
+</ul>
+<p>需要特别说明一点，为了简化讲解，今天的内容，我都以数据是从小到大排列为前提，如果你要处理的数据是从大到小排列的，解决思路也是一样的。同时，我希望你最好先自己动手试着写一下这4个变形问题，然后再看看我的讲述，这样你就会对我说的”二分查找比较难写”有更加深刻的体会了。</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="变体1：查找第一个值等于给定值的元素"><a href="#变体1：查找第一个值等于给定值的元素" class="headerlink" title="变体1：查找第一个值等于给定值的元素"></a>变体1：查找第一个值等于给定值的元素</h3></div><br></div>
+
+<p>上一节中的二分查找是最简单的一种，即有序数据集合中不存在重复的数据，我们在其中查找值等于某个给定值的数据。如果我们将这个问题稍微修改下，有序数据集合中存在重复的数据，我们希望找到第一个值等于给定值的数据，止痒之前的二分查找代码还能工作吗？</p>
+<p>比如下面这样一个有序数组，其中，a[5], a[6], a[7]的值都等于8，是重复的数据，我们希望找到第一个等于8的数据，也就是下标是5的元素。</p>
+<img src="/posts/2018-11-09-算法-二分查找-下/有序数组.jpg">
+<p>如果我们用上一节课讲的二分查找的代码实现，首先拿8与区间的中间值a[4] 比较，8比6大，于是在下标5到9之间继续查找。下标5和9中间的位置是下标7，a[7]正好等于8，所以代码就返回了。</p>
+<p>尽管a[7]也等于8，但它并不是我们想找的第一个等于8的元素，因为第一个值等于8的元素是下标为5的元素。我们上一节讲的二分查找代码就无法处理这种情况了。所以针对这个变形问题，我们可以稍微改造上一节的代码。</p>
+<p>100个人写二分查找就会有100中写法。网上有很多关于变形二分查找的实现方法，有很多写的非常简洁，比如下面这个写法。但是，尽管简洁，理解起来却非常烧脑，也很容易写错。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">binarySearch01</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n, <span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = n-<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">		<span class="keyword">int</span> mid = low + ((high-low)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(a[mid] &gt; value)&#123;</span><br><span class="line">			high = mid -<span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (low &lt; n &amp;&amp; a[low] == value) &#123;</span><br><span class="line">		<span class="keyword">return</span> low;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看完之后，你是不是觉得很不好理解？如果你只是死记硬背这个写法，我敢保证，过不了几天，你就会全部忘光，再让你写，90%的可能会写错。所以，我换了一种实现方法，你看看是不是更容易理解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch01</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n, <span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> low=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = n-<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -888,7 +917,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变体1：查找第一个值等于给定值的元素"><span class="nav-number">2.</span> <span class="nav-text">变体1：查找第一个值等于给定值的元素</span></a></li></ol></div>
             
 
           </div>
