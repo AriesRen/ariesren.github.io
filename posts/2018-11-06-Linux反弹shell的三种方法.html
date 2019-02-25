@@ -175,7 +175,7 @@
 <meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/3攻击机监听端口.jpg">
 <meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/3受害机反弹shell.jpg">
 <meta property="og:image" content="https://www.renhj.org/posts/2018-11-06-Linux反弹shell的三种方法/3攻击机获得shell.jpg">
-<meta property="og:updated_time" content="2018-11-29T09:59:50.619Z">
+<meta property="og:updated_time" content="2019-02-25T02:11:54.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux反弹shell的三种方法">
 <meta name="twitter:description" content="0x01 前言  在渗透测试中，当我们可以得到一个可以执行远程命令的漏洞时，我们通常会去获取一个shell，但是通常服务器防火墙亦或者云上都会对端口等进行严格控制，导致不能通过监听端口进行shell连接，这种情况下该怎么获取shell呢？ 而通常情况下，不论是防火墙还是云盾等防护措施，不会对服务器对外连接进行限制（特殊情况除外），这时候就可以通过反弹shell来获取连接，即通过服务器反向连接一个外">
@@ -493,7 +493,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-29 17:59:50" itemprop="dateModified" datetime="2018-11-29T17:59:50+08:00">2018-11-29</time>
+                <time title="修改时间：2019-02-25 10:11:54" itemprop="dateModified" datetime="2019-02-25T10:11:54+08:00">2019-02-25</time>
               
             
           </span>
@@ -556,6 +556,8 @@
 
 <p>在渗透测试中，当我们可以得到一个可以执行远程命令的漏洞时，我们通常会去获取一个shell，但是通常服务器防火墙亦或者云上都会对端口等进行严格控制，导致不能通过监听端口进行shell连接，这种情况下该怎么获取shell呢？</p>
 <p>而通常情况下，不论是防火墙还是云盾等防护措施，不会对服务器对外连接进行限制（特殊情况除外），这时候就可以通过反弹shell来获取连接，即通过服务器反向连接一个外部机器来获取一个shell。</p>
+<p>反弹shell通常是外网渗透的最后一步，也是内网渗透的第一步。反弹shell顾名思义，有两个关键词—反弹和shell。</p>
+<p>反弹：利用命令执行/代码执行/Webshell/redis未授权访问写入crontab等漏洞，使得目标服务器发出主动连接请求，从而绕过防火墙的入站访问控制规则则。<br>Shell：是服务器shell进程stdin/stdout/stderr重定向到攻击端。</p>
 <div style="text-align: center;"><br><div class="note success"><h3 id="0x02-获取shell"><a href="#0x02-获取shell" class="headerlink" title="0x02 获取shell"></a>0x02 获取shell</h3></div><br></div>
 
 <p>通过上面的解释，可以知道，反弹shell需要一个外部可访问的服务器，即需要一个有公网IP访问的服务器，作为黑客的攻击服务器。</p>
@@ -754,7 +756,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -847,7 +851,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">40</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
