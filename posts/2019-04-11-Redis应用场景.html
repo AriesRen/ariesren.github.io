@@ -158,24 +158,25 @@
 
 
 
-  <meta name="description" content="我不生产知识，我只是知识的搬运工。">
+  <meta name="description" content="Redis 数据结构  Redis是一个开源的内存数据结构存储系统，可以用做数据库，缓存，消息中间件等。Redis中常规的数据结构有5种，string、list、set、zset、hash，同时还有bitmaps、hyperloglogs、geospatial三种不常用的数据结构。 我们经常把redis当作缓存来使用，但是本文只是基于五种常用的数据结构及其相关命令来讨论相关的应用场景，不涉及缓存。">
 <meta name="keywords" content="算法,安全,开发,博客,Java,Python,Vue,Angular,前端,Material">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aries&#39; blog">
-<meta property="og:url" content="https://www.renhj.org/tags/插入排序/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis应用场景">
+<meta property="og:url" content="https://www.renhj.org/posts/2019-04-11-Redis应用场景.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="我不生产知识，我只是知识的搬运工。">
+<meta property="og:description" content="Redis 数据结构  Redis是一个开源的内存数据结构存储系统，可以用做数据库，缓存，消息中间件等。Redis中常规的数据结构有5种，string、list、set、zset、hash，同时还有bitmaps、hyperloglogs、geospatial三种不常用的数据结构。 我们经常把redis当作缓存来使用，但是本文只是基于五种常用的数据结构及其相关命令来讨论相关的应用场景，不涉及缓存。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-11T09:36:50.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aries&#39; blog">
-<meta name="twitter:description" content="我不生产知识，我只是知识的搬运工。">
+<meta name="twitter:title" content="Redis应用场景">
+<meta name="twitter:description" content="Redis 数据结构  Redis是一个开源的内存数据结构存储系统，可以用做数据库，缓存，消息中间件等。Redis中常规的数据结构有5种，string、list、set、zset、hash，同时还有bitmaps、hyperloglogs、geospatial三种不常用的数据结构。 我们经常把redis当作缓存来使用，但是本文只是基于五种常用的数据结构及其相关命令来讨论相关的应用场景，不涉及缓存。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.renhj.org/tags/插入排序/"/>
+  <link rel="canonical" href="https://www.renhj.org/posts/2019-04-11-Redis应用场景.html"/>
 
 
 
@@ -185,7 +186,7 @@
   };
 </script>
 
-  <title>标签: 插入排序 | Aries' blog</title>
+  <title>Redis应用场景 | Aries' blog</title>
   
 
 
@@ -242,7 +243,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -307,7 +308,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
@@ -403,93 +404,212 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>插入排序<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.renhj.org/posts/2019-04-11-Redis应用场景.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无名万物">
+      <meta itemprop="description" content="我不生产知识，我只是知识的搬运工。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aries' blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/posts/2018-09-20-算法-排序(上).html" itemprop="url">
-              
-                <span itemprop="name">算法-排序(上)</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Redis应用场景
+              
+            
+          </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-20T18:35:29+08:00"
-              content="2018-09-20" >
-          09-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
 
+              
+                
+              
+
+              <time title="创建时间：2019-04-11 15:53:34 / 修改时间：17:36:50" itemprop="dateCreated datePublished" datetime="2019-04-11T15:53:34+08:00">2019-04-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div style="text-align: center;"><br><div class="note success"><h3 id="Redis-数据结构"><a href="#Redis-数据结构" class="headerlink" title="Redis 数据结构"></a>Redis 数据结构</h3></div><br></div>
+
+<p>Redis是一个开源的内存数据结构存储系统，可以用做数据库，缓存，消息中间件等。Redis中常规的数据结构有5种，string、list、set、zset、hash，同时还有bitmaps、hyperloglogs、geospatial三种不常用的数据结构。</p>
+<p>我们经常把redis当作缓存来使用，但是本文只是基于五种常用的数据结构及其相关命令来讨论相关的应用场景，不涉及缓存。</p>
+<div style="text-align: center;"><br><div class="note success"><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3></div><br></div>
+
+<p>首先先看一下Redis中String的操作命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">SET key value [expiration EX seconds | PX milliseconds] [NX|XX]</span><br><span class="line">SETNX key value</span><br><span class="line">SETEX key seconds value</span><br><span class="line">PSETEX key milliseconds value</span><br><span class="line">GET key</span><br><span class="line">GETSET key value</span><br><span class="line">STRLEN key</span><br><span class="line">APPEND key value</span><br><span class="line">SETRANGE key offseet value</span><br><span class="line">GETRANGE key start end</span><br><span class="line">INCR key</span><br><span class="line">INCRBY key increment</span><br><span class="line">INCRBYFLOAT key increment</span><br><span class="line">DECR key</span><br><span class="line">DECRBY key increment</span><br><span class="line">MSET key value [key value ...]</span><br><span class="line">MSETNX key value [key value ...]</span><br><span class="line">MGET key [key ...]</span><br></pre></td></tr></table></figure>
+<p>命令具体的含义我这里就不一一赘述了。有想要了解的同学可以参考<a href="http://redisdoc.com/" target="_blank" rel="noopener">Redis命令参考</a></p>
+<h4 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h4><p>我们看第一条命令，<code>SET key value [expiration EX seconds | PX milliseconds] [NX|XX]</code>。</p>
+<p>通过该命令我们可以实现基于redis的分布式锁，为了确保分布式锁可用，我们至少要确保锁的实现需要满足以下条件：</p>
+<ol>
+<li>互斥性，在任一时刻，只有一个客户端持有锁。</li>
+<li>不会发生死锁，即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。</li>
+<li>容错性，只要大部分Redis节点正常运行，客户端就可以加锁、解锁。</li>
+<li>解铃还须系铃人，加锁和解锁必须是同一个客户端，客户端不能把别人的锁给解了。</li>
+</ol>
+<p>那该命令如果保证确保分布式锁的可用性呢？</p>
+<p>首先，set 加入了NX参数，可以保证如果有key存在，则其他客户端set 不会成功，也就是只有一个客户端能持有锁。其次，我们可以对锁设置过期时间，即使锁的持有者后续发生了崩溃而没有解锁，锁也会因为到了过期时间自动解锁，不会发生死锁现象。 容错性方面我们可以通过redis cluster来保证锁的高可用及容错性。最后，我们将value设置为requestId，表示加锁的客户端标识，那么客户端解锁的时候就可以进行判断是否为同一个客户端。</p>
+<h5 id="加锁"><a href="#加锁" class="headerlink" title="加锁"></a>加锁</h5><p>我们用代码看一下怎么使用redis来实现分布式锁，非常简单。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">tryGetLock</span><span class="params">(Jedis jedis, String lockKey, String requestId, <span class="keyword">int</span> expire)</span> </span>&#123;</span><br><span class="line">	String result = jedis.set(lockKey, requestId, <span class="string">"NX"</span>, <span class="string">"PX"</span>, expire);</span><br><span class="line">	<span class="keyword">if</span> (<span class="string">"OK"</span>.equals(result)) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">// 获取锁成功</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">// 获取锁失败</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而在网上有很多人使用jedis.setnx()和jedis.expire()组合实现加锁，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Long result = jedis.setnx(lockKey, requestId);</span><br><span class="line"><span class="keyword">if</span> (result == <span class="number">1</span>) &#123;</span><br><span class="line">	<span class="comment">// 如果在这里程序崩溃，则无法设置过期时间，将发生死锁</span></span><br><span class="line">	jedis.expire(lockKey, expire);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>乍一看和上面的set方法结果一样，其实不然，由于这是两条redis命令，不具有原子性，所以如果在setnx 之后程序崩溃，导致锁没有设置过期时间，可能会发生死锁。</p>
+<h5 id="解锁"><a href="#解锁" class="headerlink" title="解锁"></a>解锁</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">releaseLock</span><span class="params">(Jedis jedis, String lockKey,String requestId)</span> </span>&#123;</span><br><span class="line">	String script = <span class="string">"if redis.call('get', KEY[1]) == ARGV[1] then return redis.call('del',KEYS[1]) else return 0 end"</span>;</span><br><span class="line">	Object result = jedis.eval(script, Collections.singletonList(lockKey),Collections.singletonList(requestId));</span><br><span class="line">	Long success = <span class="number">1L</span>;</span><br><span class="line">	<span class="keyword">if</span> (success.equals(result)) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解锁我们用一行Lua代码来实现，Lua代码的功能是获取锁对应的value，检查是否与requestId相等，如果相等则删除锁(解锁)。eval()方法是将Lua代码交给redis服务器执行。</p>
+<p>那为什么要使用Lua语言来实现呢？因为要确保上述操作是原子性的，而eval命令执行Lua代码的时候，Lua代码将被当成一个命令去执行，直到eval命令执行完成，Redis才会执行其他命令。</p>
+<h4 id="分布式ID生成"><a href="#分布式ID生成" class="headerlink" title="分布式ID生成"></a>分布式ID生成</h4><p>我们再来看第二个场景–生成分布式ID，</p>
+<p><br><br><br><br><br></p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 信息流广告 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
       
     </div>
 
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2019-04-11-SpringBoot集成Rabbitmq-二.html" rel="next" title="SpringBoot集成Rabbitmq(二)">
+                <i class="fa fa-chevron-left"></i> SpringBoot集成Rabbitmq(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -510,8 +630,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -739,6 +868,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-数据结构"><span class="nav-number">1.</span> <span class="nav-text">Redis 数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-number">2.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式锁"><span class="nav-number">2.1.</span> <span class="nav-text">分布式锁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#加锁"><span class="nav-number">2.1.1.</span> <span class="nav-text">加锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解锁"><span class="nav-number">2.1.2.</span> <span class="nav-text">解锁</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式ID生成"><span class="nav-number">2.2.</span> <span class="nav-text">分布式ID生成</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -910,6 +1055,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
 
   
 
