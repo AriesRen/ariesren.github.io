@@ -166,7 +166,7 @@
 <meta property="og:site_name" content="Aries&#39; blog">
 <meta property="og:description" content="Redis 数据结构  Redis是一个开源的内存数据结构存储系统，可以用做数据库，缓存，消息中间件等。Redis中常规的数据结构有5种，string、list、set、zset、hash，同时还有bitmaps、hyperloglogs、geospatial三种不常用的数据结构。 我们经常把redis当作缓存来使用，但是本文只是基于五种常用的数据结构及其相关命令来讨论相关的应用场景，不涉及缓存。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-11T09:36:50.829Z">
+<meta property="og:updated_time" content="2019-04-11T10:41:46.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis应用场景">
 <meta name="twitter:description" content="Redis 数据结构  Redis是一个开源的内存数据结构存储系统，可以用做数据库，缓存，消息中间件等。Redis中常规的数据结构有5种，string、list、set、zset、hash，同时还有bitmaps、hyperloglogs、geospatial三种不常用的数据结构。 我们经常把redis当作缓存来使用，但是本文只是基于五种常用的数据结构及其相关命令来讨论相关的应用场景，不涉及缓存。">
@@ -466,7 +466,7 @@
                 
               
 
-              <time title="创建时间：2019-04-11 15:53:34 / 修改时间：17:36:50" itemprop="dateCreated datePublished" datetime="2019-04-11T15:53:34+08:00">2019-04-11</time>
+              <time title="创建时间：2019-04-11 15:53:34 / 修改时间：18:41:46" itemprop="dateCreated datePublished" datetime="2019-04-11T15:53:34+08:00">2019-04-11</time>
             
 
             
@@ -540,6 +540,7 @@
 <p>解锁我们用一行Lua代码来实现，Lua代码的功能是获取锁对应的value，检查是否与requestId相等，如果相等则删除锁(解锁)。eval()方法是将Lua代码交给redis服务器执行。</p>
 <p>那为什么要使用Lua语言来实现呢？因为要确保上述操作是原子性的，而eval命令执行Lua代码的时候，Lua代码将被当成一个命令去执行，直到eval命令执行完成，Redis才会执行其他命令。</p>
 <h4 id="分布式ID生成"><a href="#分布式ID生成" class="headerlink" title="分布式ID生成"></a>分布式ID生成</h4><p>我们再来看第二个场景–生成分布式ID，</p>
+<p>当使用数据库来生成ID性能不够的时候，可以尝试使用Redis来生成ID，这主要依赖Redis是单线程的，所以也可以用来生成全局唯一ID。可以用Redis的原子操作INCR和INCRBY来实现</p>
 <p><br><br><br><br><br></p>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->
