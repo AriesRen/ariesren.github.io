@@ -55,7 +55,15 @@ IOC解决了对象之间的依赖问题，把所有的Bean的依赖关系通过�
 #### 10、Spring MVC的架构/工作流程图
 {% asset_img springmvc流程图.jpg %}
 
-#### 11、spring bean的作用域和生命周期
+#### 11、spring bean的作用域
+
+Spring中通过scope来配置Bean的作用域，scope有五个属性，用来描述不同的作用域
+* singleton： 使用该属性定义Bean时，IOC容器仅创建一个Bean实例，IOC容器每次返回的是同一个Bean实例。
+* prototype：使用该属性定义Bean时，IOC容器可以创建多个Bean实例，每次返回的都是一个新的实例。
+* request：该属性仅对HTTP请求产生作用，使用该属性定义Bean时，每次HTTP请求都会创建一个新的Bean，适用于WebApplicationContext环境。
+* session： 该属性仅用于HTTP Session，同一个Session共享一个Bean实例。不同的Session使用不同的实例。
+
+* global-session： 该属性仅用于HTTP Session，同Session作用域不同的是，所有的session共享一个Bean实例。
 
 #### 12、spring boot比psinrg做了哪些改进？spring5比spring4做了哪些改进？
 

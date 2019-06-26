@@ -15,6 +15,10 @@ categories: 安全
 
 而通常情况下，不论是防火墙还是云盾等防护措施，不会对服务器对外连接进行限制（特殊情况除外），这时候就可以通过反弹shell来获取连接，即通过服务器反向连接一个外部机器来获取一个shell。
 
+反弹shell通常是外网渗透的最后一步，也是内网渗透的第一步。反弹shell顾名思义，有两个关键词—反弹和shell。
+
+反弹：利用命令执行/代码执行/Webshell/redis未授权访问写入crontab等漏洞，使得目标服务器发出主动连接请求，从而绕过防火墙的入站访问控制规则则。
+Shell：是服务器shell进程stdin/stdout/stderr重定向到攻击端。
 
 <div style="text-align: center;">
 {% note success %} 

@@ -63,8 +63,14 @@ Java中通过Executors提供四种线程池：
 #### 13、ArrayList和LinkedList的区别，List和Map的区别， ArrayList和Vector的区别
 
 * ArrayList和LinkedList区别：
-	* ArrayList内部是基于数组实现的，
-	* LinkedList内部是基于链表实现的
+	* ArrayList内部是基于数组实现的，因此对于随机访问快，新增删除慢
+	* LinkedList内部是基于链表实现的，因此新增删除快，随机访问慢。
+* List和Map的区别：
+	* List是存储单列数据的集合，存储的数据都是有序并且是可以重复的
+	* Map是存储双列数据的集合，通过键值对存储数据，存储的数据是无序的，Key值不能重复，value值是可以重复的。
+* ArrayList和Vector的区别：
+	* ArrayList是不同步的，也就是不是线程安全的类
+	* Vector是同步的，线程安全
 
 #### 14、TreeSet对存入的数据有什么要求吗？
 
