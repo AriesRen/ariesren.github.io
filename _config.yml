@@ -85,7 +85,7 @@ deploy:
   - type: git
     repo: 
       github: git@github.com:AriesRen/ariesren.github.io.git
-      coding: git@git.dev.tencent.com:renhj1761179051/blog.git
+      coding: git@tencent.com:renhj1761179051/blog.git
     branch: master
   - type: baidu_url_submitter
 

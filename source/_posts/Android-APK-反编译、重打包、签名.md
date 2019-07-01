@@ -104,7 +104,7 @@ keytool -genkey -alias demo.keystore -keyalg RSA -VALIDITY 40000 -keystore demo.
 
 签名工具使用jarsigner，jarsigner也存在于Java JDK中，所以如果安装好Java环境，可以直接在命令行中使用。
 
-```shell
+```bash
 jarsigner -verbos -keystore <keystore密钥库位置> <待签名的APK>  <密钥库别名>
 ```
 

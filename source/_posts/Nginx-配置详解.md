@@ -1,7 +1,7 @@
 ---
 title: Nginx 配置详解
 date: 2019-05-06 11:57:56
-tags: 'nginx', 'config'
+tags: ['nginx','config']
 categories: "Nginx"
 ---
 
