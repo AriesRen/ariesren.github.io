@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[怀念父亲]]></title>
-    <url>%2Fposts%2F2019-07-30-%E6%80%80%E5%BF%B5%E7%88%B6%E4%BA%B2.html</url>
-    <content type="text"><![CDATA[(adsbygoogle = window.adsbygoogle || []).push({});]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Nginx 配置详解]]></title>
     <url>%2Fposts%2F2019-05-06-Nginx-%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3.html</url>
     <content type="text"><![CDATA[前言 在用yum或apt安装Nginx之后，大部分情况下，已经可以作为一个性能非常好的web服务器了。而真正想要配置一个高性能的Nginx服务器，还需要优化大量的配置，本篇文章通过介绍nginx各个配置，为后续优化做记录。 (adsbygoogle = window.adsbygoogle || []).push({});]]></content>
