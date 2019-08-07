@@ -141,6 +141,46 @@ OSGI实现模块化热部署的关键是它自定义的类加载器机制的实�
 
 #### 36、NIO是什么，适用于何种场景
 
+#### 37、八种基本数据类型的大小，以及他们的封装类
+
+byte、short、int、char、float、double、long、boolean
+1、2、4、2、4、8、8、1
+Byte、Short、Integer、Character、Float、Double、Long、Boolean
+
+#### 38、引用数据类型
+
+类、接口类型、数组类型、枚举类型、注解类型
+
+基本数据类型在创建时，在栈上给其划分一块内存，将数值直接存储在栈上。
+引用数据类型在创建时，首先在栈上给其引用分配一块内存，而对象的具体信息都存储在堆内存中，然后由栈上的引用指向堆中对象的地址。
+
+#### 39、switch能否用string做参数
+
+jdk7之前只能用byte、short、char、int这几个基本数据类型和其对应的封装类型。switch后面的括号内只能放置int类型的数据，由于byte、short、char都可以自动转为int类型，所以可以支持。
+
+jdk7之后整形、枚举类型、字符串都可以，但是jdk7并没有新的指令处理switch string，而是通过string.hashcode，将string转换为int进行判断。
+
+#### 40、equals和==的区别
+
+1、使用==比较原生类型如 boolean、int、char等，使用equals比较对象
+2、==是判断两个变量或者实例是不是指向同一个内存空间。equals是判断两个变量或者实例所指向的内存空间的值是不是相同
+3、==是指对内存地址进行比较，equals是对字符串的内容进行比较
+4、==是指引用是否相同，equals指的是值是否相同。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
