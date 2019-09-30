@@ -11,7 +11,20 @@ categories: "Nginx"
 {% endnote %}
 </div>
 
-在用yum或apt安装Nginx之后，大部分情况下，已经可以作为一个性能非常好的web服务器了。而真正想要配置一个高性能的Nginx服务器，还需要优化大量的配置，本篇文章通过介绍nginx各个配置，为后续优化做记录。
+Nginx是Igor Sysoev为俄罗斯访问量第二的rambler.ru站点设计开发的，从2004年发布至今，凭借开源的力量，已经接近成熟和完善。Nginx功能丰富，可以作为HTTP服务器，也可以作为反向代理服务器，邮件服务器，支持FastCGI、SSL、Virtual Host、URL Rewrite、Gzip等功能，并且支持很多第三方的模块扩展。
+
+Nginx的稳定性、功能集、实例配置文件和第系统资源的消耗也让它后来居上，在全球活跃的汪涵中有12.18%的使用比率，大约为2220万个网站。
+
+<div style="text-align: center;">
+{% note success %} 
+### Nginx常用功能
+{% endnote %}
+</div>
+
+**1、Http代理、反向代理**
+
+作为web服务器最常用的功能之一，尤其是反向代理
+
 
 
 

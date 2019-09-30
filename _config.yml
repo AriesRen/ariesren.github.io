@@ -84,7 +84,7 @@ theme: next
 deploy:
   - type: git
     repo: 
-      github: git@github.com:AriesRen/ariesren.github.io.git
+      github: git@github.com:H4x3rs/H4x3rs.github.io.git
       coding: git@tencent.com:renhj1761179051/blog.git
     branch: master
   - type: baidu_url_submitter

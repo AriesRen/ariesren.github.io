@@ -43,13 +43,13 @@ Tasks:   65 total,   1 running,   64 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  0.9 us,  1.2 sy,  0.0 ni, 97.6 id,  0.1 wa,  0.0 hi,  0.2 si,  0.0 st
 ```
 这里显示的是不同模式下所占CPU时间百分比，不同CPU时间表示：
-* us   user, 运行用户进程（未调整优先级）的CPU时间
-* sy   system，运行内核进程的CPU时间
+* us   user, 运行用户进程的CPU时间，消耗在用户空间的时间
+* sy   system，运行内核进程的CPU时间，即消耗在内核空间的时间
 * ni   niced，运行已调整优先级的用户进程的CPU时间
-* id     空闲CPU百分比
-* wa   wait，用于等待IO完成的CPU时间
-* hi   处理硬件中断的CPU时间
-* si   处理软中断的CPU时间
+* id   idle，空闲CPU百分比，这个值越低，表示cpu越忙
+* wa   wait，用于等待IO完成的CPU时间百分比，这个值越高说明外接设备有问题
+* hi   hardware interrupt，处理硬件中断的CPU时间
+* si   software interrupt，处理软中断的CPU时间
 * st   虚拟机被hypervisor偷去的CPU时间（如果当前处于一个hypervisor的虚拟机，实际上hypervisor也是要消耗一部分CPU时间的）。
 
 在这里CPU的使用比率和windows概念不同，如果你不理解用户空间和内核空间，需要充电了。
