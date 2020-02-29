@@ -158,18 +158,18 @@
 
 
 
-  <meta name="description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
+  <meta name="description" content="0x01 为啥要费劲的自己搭一个git服务器本人空闲时间喜欢自己鼓捣一些项目，但是又不喜欢在本地存，所有都放到github上了，最近去Github看了一下，又多又乱，github俨然成了一个demohub了，所以有了建一个自己的代码仓库管理自己代码的想法。另一方面，也由于Github的访问速度有点慢，所以说干就干，在自己的服务器上搭了这么一个gitea服务器。 调查了一些市面上的Git服务器，大概">
 <meta name="keywords" content="gitea,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建自己的Git服务器-Gitea安装教程">
 <meta property="og:url" content="https://www.renhj.org/posts/2020-02-26-搭建自己的Git服务器-Gitea安装教程.html">
 <meta property="og:site_name" content="Aries&#39; blog">
-<meta property="og:description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
+<meta property="og:description" content="0x01 为啥要费劲的自己搭一个git服务器本人空闲时间喜欢自己鼓捣一些项目，但是又不喜欢在本地存，所有都放到github上了，最近去Github看了一下，又多又乱，github俨然成了一个demohub了，所以有了建一个自己的代码仓库管理自己代码的想法。另一方面，也由于Github的访问速度有点慢，所以说干就干，在自己的服务器上搭了这么一个gitea服务器。 调查了一些市面上的Git服务器，大概">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-26T12:01:14.896Z">
+<meta property="og:updated_time" content="2020-02-29T07:36:56.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建自己的Git服务器-Gitea安装教程">
-<meta name="twitter:description" content="(adsbygoogle = window.adsbygoogle || []).push({});">
+<meta name="twitter:description" content="0x01 为啥要费劲的自己搭一个git服务器本人空闲时间喜欢自己鼓捣一些项目，但是又不喜欢在本地存，所有都放到github上了，最近去Github看了一下，又多又乱，github俨然成了一个demohub了，所以有了建一个自己的代码仓库管理自己代码的想法。另一方面，也由于Github的访问速度有点慢，所以说干就干，在自己的服务器上搭了这么一个gitea服务器。 调查了一些市面上的Git服务器，大概">
 
 
 
@@ -450,12 +450,24 @@
                 
               
 
-              <time title="创建时间：2020-02-26 19:04:49 / 修改时间：20:01:14" itemprop="dateCreated datePublished" datetime="2020-02-26T19:04:49+08:00">2020-02-26</time>
+              <time title="创建时间：2020-02-26 19:04:49" itemprop="dateCreated datePublished" datetime="2020-02-26T19:04:49+08:00">2020-02-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-29 15:36:56" itemprop="dateModified" datetime="2020-02-29T15:36:56+08:00">2020-02-29</time>
               
             
           </span>
@@ -496,7 +508,61 @@
       
 
       
-        <p><br><br><br><br><br></p>
+        <h1 id="0x01-为啥要费劲的自己搭一个git服务器"><a href="#0x01-为啥要费劲的自己搭一个git服务器" class="headerlink" title="0x01 为啥要费劲的自己搭一个git服务器"></a>0x01 为啥要费劲的自己搭一个git服务器</h1><p>本人空闲时间喜欢自己鼓捣一些项目，但是又不喜欢在本地存，所有都放到github上了，最近去Github看了一下，又多又乱，github俨然成了一个demohub了，所以有了建一个自己的代码仓库管理自己代码的想法。另一方面，也由于Github的访问速度有点慢，所以说干就干，在自己的服务器上搭了这么一个gitea服务器。</p>
+<p>调查了一些市面上的Git服务器，大概有这么三个gogs、gitlab、gitea。</p>
+<ul>
+<li>gogs是使用go语言开发的一个轻量级的git服务器。</li>
+<li>gitlab算是目前企业使用较多，也比较火的一个git自建服务应用，但是对于个人来说，服务器的配置可能跟不上。</li>
+<li>gitea是gogs的一个克隆版本，但是相比较gogs，是采用社区进行维护的，问题解决的也比较及时。</li>
+</ul>
+<p>因此我这里用gitea搭建了一个自己的git服务器，用来作为自己的一个代码仓库，一个方便管理，另一个是<del>方便装逼</del>。</p>
+<h1 id="0x02-准备工作"><a href="#0x02-准备工作" class="headerlink" title="0x02 准备工作"></a>0x02 准备工作</h1><p>我自己搭建的使用的存储数据库采用的是mysql，当然可以根据gitea的文档自己选择和搭建。</p>
+<p>这里放一下<a href="https://docs.gitea.io/en-us/database-prep/" target="_blank" rel="noopener">gitea的官网</a>，有需要的可以参照英文文档步骤自己搭建。</p>
+<p>首先要安装mysql数据库，由于之前我已经安装过了，这里就不做安装步骤的，有需要的自己上网搜索。</p>
+<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><p>1、 以root用户登录数据库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj ~]<span class="comment"># mysql -u root -p</span></span><br><span class="line">Enter password:</span><br></pre></td></tr></table></figure>
+<p>2、 创建gitea所需的数据库用户，这里我用的用户名为gitea，密码为!QAZ2wsx， 你可以用你熟悉的比较安全的密码。</p>
+<p>如果你的gitea和mysql是在同一台服务器上，按照下面的创建：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE USER <span class="string">'gitea'</span> IDENTIFIED BY <span class="string">'!QAZ2wsx'</span>;</span><br></pre></td></tr></table></figure>
+<p>对于不在一台服务器上的，则可以按照下面的语句进行创建：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE USER <span class="string">'gitea'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'!QAZ2wsx'</span>;</span><br></pre></td></tr></table></figure></p>
+<p><code>%</code>是对于所有外部服务器进行匹配的，如果你只想限定某一台服务器登录mysql，可以把<code>%</code>换成你的gitea服务器的IP地址。</p>
+<p>3、创建gitea所需的数据库giteadb，编码用utf8mb4.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE DATABASE giteadb CHARACTER SET <span class="string">'utf8mb4'</span> COLLATE <span class="string">'utf8mb4_unicode_ci'</span>;</span><br></pre></td></tr></table></figure>
+<p>4、授权数据库的权限。</p>
+<p>git服务和mysql在一台服务器上的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON giteadb.* TO <span class="string">'gitea'</span>;</span><br></pre></td></tr></table></figure>
+<p>git服务和mysql不在一台服务器上的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON giteadb.* TO <span class="string">'gitea'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
+<p>可以把<code>%</code>换成你的gitea服务器的IP地址。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>检查服务器上是否安装了git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj ~]<span class="comment"># git --version</span></span><br><span class="line">git version 1.8.3.1</span><br></pre></td></tr></table></figure>
+<p>如果没有安装的话，用yum或者二进制包进行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj ~]<span class="comment"># sudo yum install git -y</span></span><br></pre></td></tr></table></figure>
+<h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><p>1、创建运行gitea服务的系统用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj ~]<span class="comment"># groupadd git</span></span><br><span class="line">[root@renhj ~]<span class="comment"># adduser --system --shell /bin/bash --comment 'Git Version Control' --user-group --home-dir /home/git -m git</span></span><br></pre></td></tr></table></figure>
+<p>2、创建运行所需的目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj ~]<span class="comment"># mkdir -p /var/lib/gitea/&#123;custom,data,log&#125;</span></span><br><span class="line">[root@renhj ~]<span class="comment"># chown git:git /var/lib/gitea/&#123;data,indexers,log&#125;</span></span><br><span class="line">[root@renhj ~]<span class="comment"># mkdir /etc/gitea</span></span><br><span class="line">[root@renhj ~]<span class="comment"># chown root:git /etc/gitea/</span></span><br><span class="line">[root@renhj ~]<span class="comment"># chmod 770 /etc/gitea/</span></span><br></pre></td></tr></table></figure>
+<p>3、下载二进制文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj ~]<span class="comment"># mkdir /usr/local/bin/</span></span><br><span class="line">[root@renhj ~]<span class="comment"># cd /usr/local/bin/</span></span><br><span class="line">[root@renhj bin]<span class="comment"># wget -O gitea https://dl.gitea.io/gitea/1.9.6/gitea-1.9.6-linux-amd64</span></span><br><span class="line">[root@renhj bin]<span class="comment"># chmod +x gitea</span></span><br></pre></td></tr></table></figure>
+<p>4、将gitea做成服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj ~]<span class="comment"># vim /etc/systemd/system/gitea.service</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Gitea (Git with a cup of tea)</span><br><span class="line">After=network.target</span><br><span class="line">Requires=mysqld.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">RestartSec=2s</span><br><span class="line">Type=simple</span><br><span class="line">User=git</span><br><span class="line">Group=git</span><br><span class="line">WorkingDirectory=/var/lib/gitea/</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/bin/gitea web -c /etc/gitea/app.ini</span><br><span class="line">Restart=always</span><br><span class="line">Environment=USER=git HOME=/home/git GITEA_WORK_DIR=/var/lib/gitea</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>5、启动gitea</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj ~]<span class="comment"># systemctl daemon-reload </span></span><br><span class="line">[root@renhj ~]<span class="comment"># systemctl enable gitea</span></span><br><span class="line">[root@renhj ~]<span class="comment"># systemctl start gitea</span></span><br></pre></td></tr></table></figure>
+<p>启动之后可以通过http://[you ip]:3000进行访问，或者可以通过nginx做一个反向代理，nginx的安装这里就不写了，我把反向代理的配置贴出来。</p>
+<p>6、nginx配置反向代理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj bin]<span class="comment"># vim /etc/nginx/conf.d/gitea.conf </span></span><br><span class="line">server &#123;</span><br><span class="line">	listen 80;</span><br><span class="line">	server_name git.renhj.org;</span><br><span class="line"></span><br><span class="line">	location / &#123;</span><br><span class="line">		proxy_pass http://127.0.0.1:3000/;</span><br><span class="line">		proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">		proxy_set_header X-Forwarded-For <span class="variable">$remote_addr</span>;</span><br><span class="line">		proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">		proxy_set_header Connection <span class="variable">$http_connection</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同时不要忘了在你的域名解析上加上一条git的解析。</p>
+<p>7、注册git管理员及配置</p>
+<p>这里已经算是安装完成了，但是gitea的管理员是没有的，数据库其他配置也没有配置。</p>
+<p>通过访问<code>/install</code>页面进行配置，这里我的地址是<code>http://git.renhj.org/install</code></p>
+<p>我这里已经配置完成了，所以就不展示了，这里你配置上自己的数据库信息就行之，之后会让你进行注册，第一个注册的用户是管理员账户。</p>
+<p>8、配置仓库地址</p>
+<p>我查了很多网上的教程，很多教程到上一步就结束了，其实不是。还需要配置一下git代码的地址，不然你git推送和拉取都是localhost的地址。</p>
+<p>将/etc/gitea/app.ini文件里server标签下的SSH_DOMAIN、DOMAIN、ROOT_URL都改为你自己配置的域名如下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@renhj bin]<span class="comment"># vim /etc/gitea/app.ini </span></span><br><span class="line">[server]</span><br><span class="line">SSH_DOMAIN       = git.renhj.org</span><br><span class="line">DOMAIN           = git.renhj.org</span><br><span class="line">HTTP_PORT        = 3000</span><br><span class="line">ROOT_URL         = http://git.renhj.org/</span><br></pre></td></tr></table></figure>
+<p>当然还有一些配置如禁止注册、邮箱配置，我这里也不需要，就不配置了。如果你需要可以到官网上去找，或者联系我。</p>
+<p><br><br><br><br><br></p>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 信息流广告 -->
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4127326375481893" data-ad-slot="9105526840" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -598,8 +664,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -854,6 +929,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-为啥要费劲的自己搭一个git服务器"><span class="nav-number">1.</span> <span class="nav-text">0x01 为啥要费劲的自己搭一个git服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-准备工作"><span class="nav-number">2.</span> <span class="nav-text">0x02 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql"><span class="nav-number">2.0.1.</span> <span class="nav-text">Mysql</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">2.1.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统"><span class="nav-number">2.2.</span> <span class="nav-text">系统</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
